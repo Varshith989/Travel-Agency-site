@@ -1,0 +1,150 @@
+﻿// Prisma schema for Aerova Travels
+// Ready for PostgreSQL database connection
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  name      String?
+  role      String    @default("CUSTOMER") // CUSTOMER, ADMIN, TRAVEL_CURATOR
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  bookings  Booking[]
+}
+
+model Destination {
+  id               String    @id @default(cuid())
+  slug             String    @unique
+  name             String
+  country          String
+  continent        String
+  tagline          String
+  description      String
+  heroImage        String
+  gallery          String[]
+  startingPrice    Int
+  bestTimeToVisit  String
+  idealDuration    String
+  visaInfo         String
+  featured         Boolean   @default(false)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  packages         Package[]
+}
+
+model Package {
+  id                 String          @id @default(cuid())
+  slug               String          @unique
+  title              String
+  destinationId      String
+  destination        Destination     @relation(fields: [destinationId], references: [id])
+  durationDays       Int
+  durationNights     Int
+  priceINR           Int
+  rating             Float           @default(4.9)
+  reviewCount        Int             @default(24)
+  heroImage          String
+  gallery            String[]
+  tagline            String
+  overview           String
+  travelStyle        String          // Luxury, Honeymoon, Adventure, Cultural, etc.
+  featured           Boolean         @default(false)
+  inclusions         String[]
+  exclusions         String[]
+  cancellationPolicy String
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt
+  itineraryDays      ItineraryDay[]
+  bookings           Booking[]
+}
+
+model ItineraryDay {
+  id          String   @id @default(cuid())
+  packageId   String
+  package     Package  @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  dayNumber   Int
+  title       String
+  location    String
+  description String
+  meals       String   // e.g. "Breakfast, Dinner"
+  stayHotel   String
+  activities  String[]
+}
+
+model Booking {
+  id            String   @id @default(cuid())
+  bookingRef    String   @unique
+  packageId     String
+  package       Package  @relation(fields: [packageId], references: [id])
+  userId        String?
+  user          User?    @relation(fields: [userId], references: [id])
+  customerName  String
+  customerEmail String
+  customerPhone String
+  travelDate    DateTime
+  travelers     Int      @default(2)
+  totalPriceINR Int
+  status        String   @default("CONFIRMED") // PENDING, CONFIRMED, COMPLETED, CANCELLED
+  paymentStatus String   @default("PAID")      // UNPAID, PARTIAL, PAID
+  notes         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Enquiry {
+  id              String   @id @default(cuid())
+  enquiryRef      String   @unique
+  destination     String
+  travelMonth     String
+  travelYear      String
+  durationDays    String
+  travelersCount  Int      @default(2)
+  travelStyle     String   // Luxury, Honeymoon, Family, Adventure
+  budgetPerPerson String
+  accommodation   String   // 5-Star Luxury, Boutique Heritage, Private Villas
+  customerName    String
+  customerEmail   String
+  customerPhone   String
+  customerCountry String
+  notes           String?
+  status          String   @default("NEW") // NEW, IN_REVIEW, QUOTED, CONTACTED, CONVERTED
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Review {
+  id           String   @id @default(cuid())
+  authorName   String
+  location     String
+  rating       Int      @default(5)
+  tripTaken    String
+  content      String
+  travelDate   String
+  avatarUrl    String?
+  isVerified   Boolean  @default(true)
+  createdAt    DateTime @default(now())
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  subtitle    String
+  coverImage  String
+  category    String
+  authorName  String
+  authorRole  String
+  authorAvatar String
+  readTime    String
+  publishedAt DateTime @default(now())
+  content     String
+  tags        String[]
+}
