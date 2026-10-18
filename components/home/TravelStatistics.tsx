@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useRef, useState } from "react";
 import { Compass, Globe, Heart, Star } from "lucide-react";
@@ -25,7 +25,6 @@ function Counter({ end, suffix = "", decimals = 0, duration = 2000 }: CounterPro
           const animate = (currentTime: number) => {
             if (!startTime) startTime = currentTime;
             const progress = Math.min((currentTime - startTime) / duration, 1);
-            // Ease out cubic
             const easeOut = 1 - Math.pow(1 - progress, 3);
             setCount(easeOut * end);
 
@@ -60,41 +59,41 @@ function Counter({ end, suffix = "", decimals = 0, duration = 2000 }: CounterPro
 export default function TravelStatistics() {
   const stats = [
     {
-      label: "Trips Planned",
+      label: "Bespoke Journeys",
       end: 500,
       suffix: "+",
       decimals: 0,
       icon: Compass,
-      subtext: "Across 4 continents",
+      subtext: "Designed across 4 continents",
     },
     {
-      label: "Curated Destinations",
+      label: "Surveyed Sanctuaries",
       end: 20,
       suffix: "+",
       decimals: 0,
       icon: Globe,
-      subtext: "Vetted global havens",
+      subtext: "Personally vetted global havens",
     },
     {
-      label: "Happy Travelers",
+      label: "Guest Satisfaction",
       end: 98,
       suffix: "%",
       decimals: 0,
       icon: Heart,
-      subtext: "Repeat & referred guests",
+      subtext: "Repeat & private referrals",
     },
     {
-      label: "Average Rating",
+      label: "Excellence Rating",
       end: 4.9,
       suffix: "/5",
       decimals: 1,
       icon: Star,
-      subtext: "From 120+ verified reviews",
+      subtext: "From 120+ verified travelers",
     },
   ];
 
   return (
-    <section className="py-20 bg-[#111111] text-white border-y border-white/10">
+    <section className="py-20 bg-[#0D1315] text-white border-y border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
           {stats.map((item, idx) => {
@@ -104,11 +103,11 @@ export default function TravelStatistics() {
                 key={idx}
                 className="flex flex-col items-center sm:items-start text-center sm:text-left p-4"
               >
-                <div className="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#D9A441] mb-4">
+                <div className="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#C29D59] mb-4">
                   <Icon className="w-5 h-5" />
                 </div>
 
-                <div className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#D9A441] mb-2">
+                <div className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-[#C29D59] mb-2">
                   <Counter
                     end={item.end}
                     suffix={item.suffix}
@@ -117,7 +116,7 @@ export default function TravelStatistics() {
                   />
                 </div>
 
-                <div className="font-serif text-base sm:text-lg font-medium text-white mb-1">
+                <div className="font-serif text-base sm:text-lg font-normal text-white mb-1">
                   {item.label}
                 </div>
 

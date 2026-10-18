@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
@@ -34,15 +34,18 @@ export default function InstagramGallery() {
   ];
 
   return (
-    <section className="py-20 bg-[#EFECE6]/30 border-t border-[#171717]/5">
+    <section className="py-24 bg-[#F4F0E8]/40 border-t border-[#181918]/6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-12">
           <div>
-            <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#D9A441] mb-1 block">
-              Visual Chronicles
-            </span>
-            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#111111]">
+            <div className="inline-flex items-center gap-2 mb-2">
+              <span className="w-8 h-[1px] bg-[#C29D59]" />
+              <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C29D59]">
+                Visual Chronicles
+              </span>
+            </div>
+            <h3 className="font-serif text-3xl sm:text-4xl font-normal text-[#0D1315]">
               Snapshots of the sublime.
             </h3>
           </div>
@@ -51,11 +54,11 @@ export default function InstagramGallery() {
             href={siteConfig.socials.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-[#171717]/10 text-xs font-semibold text-[#111111] hover:border-[#D9A441] hover:text-[#D9A441] transition-colors shadow-sm"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-[#181918]/10 text-xs font-semibold text-[#0D1315] hover:border-[#C29D59] hover:text-[#C29D59] transition-colors shadow-sm"
           >
-            <InstagramIcon className="w-3.5 h-3.5 text-[#D9A441]" />
-            <span>Follow our journey @aerovatravels</span>
-            <ArrowUpRight className="w-3 h-3 text-[#737373]" />
+            <InstagramIcon className="w-3.5 h-3.5 text-[#C29D59]" />
+            <span>Follow @aerovatravels</span>
+            <ArrowUpRight className="w-3 h-3 text-[#7A7C78]" />
           </a>
         </div>
 
@@ -74,7 +77,7 @@ export default function InstagramGallery() {
                 alt={photo.caption}
                 fill
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
-                className="object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-3 text-center">
                 <InstagramIcon className="w-6 h-6 text-white" />

@@ -1,8 +1,8 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { Enquiry } from "@/lib/types";
-import { Search, Mail, Phone, MapPin, Calendar, Clock } from "lucide-react";
+import { Search } from "lucide-react";
 
 interface Props {
   initialEnquiries: Enquiry[];
@@ -121,7 +121,7 @@ export default function EnquiriesManager({ initialEnquiries }: Props) {
                   <td className="p-4 pr-6">
                     <select
                       value={enq.status}
-                      onChange={(e) => handleStatusChange(enq.id, e.target.value as any)}
+                      onChange={(e) => handleStatusChange(enq.id, e.target.value as "NEW" | "IN_REVIEW" | "QUOTED" | "CONTACTED" | "CONVERTED")}
                       className="px-2.5 py-1 rounded-xl bg-[#F8F7F3] border border-gray-200 text-xs font-medium text-[#111111] cursor-pointer"
                     >
                       <option value="NEW">New</option>

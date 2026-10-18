@@ -1,4 +1,4 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { razorpay } from "@/lib/razorpay";
 
 export async function POST(request: Request) {
@@ -44,9 +44,10 @@ export async function POST(request: Request) {
         isDemo: true,
       });
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Failed to create Razorpay order";
     return NextResponse.json(
-      { success: false, error: error?.message || "Failed to create Razorpay order" },
+      { success: false, error: message },
       { status: 500 }
     );
   }

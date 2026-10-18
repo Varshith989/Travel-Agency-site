@@ -1,24 +1,28 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
   Compass,
-  MapPin,
-  Calendar,
-  Users,
-  Wallet,
-  Sparkles,
-  UserCheck,
   ArrowRight,
   ArrowLeft,
   CheckCircle2,
   Check,
-  ShieldCheck,
-  Phone,
-  Mail,
 } from "lucide-react";
+
+interface EnquiryConfirmation {
+  enquiryRef: string;
+  destination: string;
+  travelMonth?: string;
+  travelYear?: string;
+  durationDays?: string;
+  travelersCount?: number;
+  travelStyle?: string;
+  budgetPerPerson?: string;
+  customerName?: string;
+  customerEmail?: string;
+}
 
 interface Props {
   initialDestination?: string;
@@ -28,7 +32,7 @@ interface Props {
 export default function PlanTripClient({ initialDestination = "", initialStyle = "" }: Props) {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [confirmation, setConfirmation] = useState<any>(null);
+  const [confirmation, setConfirmation] = useState<EnquiryConfirmation | null>(null);
 
   // Form states
   const [destination, setDestination] = useState(initialDestination || "Japan");

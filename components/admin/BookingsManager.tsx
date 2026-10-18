@@ -1,9 +1,9 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { Booking } from "@/lib/types";
 import { formatINR } from "@/lib/utils";
-import { CalendarCheck, Search, CheckCircle2, Clock, XCircle, RefreshCw } from "lucide-react";
+import { Search } from "lucide-react";
 
 interface Props {
   initialBookings: Booking[];
@@ -134,7 +134,7 @@ export default function BookingsManager({ initialBookings }: Props) {
                   <td className="p-4 pr-6">
                     <select
                       value={b.status}
-                      onChange={(e) => handleStatusChange(b.id, e.target.value as any)}
+                      onChange={(e) => handleStatusChange(b.id, e.target.value as "CONFIRMED" | "PENDING" | "COMPLETED" | "CANCELLED")}
                       className="px-2.5 py-1 rounded-xl bg-[#F8F7F3] border border-gray-200 text-xs font-medium text-[#111111] cursor-pointer"
                     >
                       <option value="CONFIRMED">Confirm</option>

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -9,16 +9,12 @@ import BookingModal from "./BookingModal";
 import PackageItineraryAccordions from "./PackageItineraryAccordions";
 import {
   MapPin,
-  Clock,
   Star,
   CheckCircle2,
   XCircle,
   Building2,
-  Car,
   ShieldCheck,
-  ArrowRight,
   ArrowLeft,
-  Calendar,
   Sparkles,
 } from "lucide-react";
 
@@ -126,7 +122,7 @@ export default function PackageDetailClient({ pkg }: Props) {
               <div>
                 <h3 className="font-serif text-xl font-bold text-[#111111] mb-4 flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-                  <span>What's Included</span>
+                  <span>What&apos;s Included</span>
                 </h3>
                 <ul className="space-y-3 text-xs text-[#171717] leading-relaxed font-light">
                   {pkg.inclusions.map((item, i) => (
@@ -141,7 +137,7 @@ export default function PackageDetailClient({ pkg }: Props) {
               <div>
                 <h3 className="font-serif text-xl font-bold text-[#111111] mb-4 flex items-center gap-2">
                   <XCircle className="w-5 h-5 text-gray-400" />
-                  <span>What's Excluded</span>
+                  <span>What&apos;s Excluded</span>
                 </h3>
                 <ul className="space-y-3 text-xs text-[#737373] leading-relaxed font-light">
                   {pkg.exclusions.map((item, i) => (

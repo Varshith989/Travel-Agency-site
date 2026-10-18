@@ -1,9 +1,9 @@
-﻿"use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import { Package } from "@/lib/types";
 import { formatINR } from "@/lib/utils";
-import { X, Calendar, Users, CheckCircle2, ShieldCheck, CreditCard, Sparkles, Building, ArrowRight } from "lucide-react";
+import { X, CheckCircle2, CreditCard, Sparkles, Building } from "lucide-react";
 
 interface Props {
   pkg: Package;
@@ -11,10 +11,39 @@ interface Props {
   onClose: () => void;
 }
 
+interface RazorpayResponse {
+  razorpay_order_id: string;
+  razorpay_payment_id: string;
+  razorpay_signature: string;
+}
+
+interface RazorpayInstance {
+  open: () => void;
+}
+
 declare global {
   interface Window {
-    Razorpay: any;
+    Razorpay?: new (options: Record<string, unknown>) => RazorpayInstance;
   }
+}
+
+interface BookingRecord {
+  id?: string;
+  bookingRef?: string;
+  packageTitle?: string;
+  travelDate?: string;
+  travelers?: number;
+  totalPriceINR?: number;
+  customerName?: string;
+  customerEmail?: string;
+  customerPhone?: string;
+  paymentId?: string;
+  paidAmount?: number;
+  paymentStatus?: string;
+}
+
+function generateDemoPaymentId(bookingId?: string): string {
+  return `pay_demo_${bookingId || "guest"}`;
 }
 
 export default function BookingModal({ pkg, isOpen, onClose }: Props) {
@@ -26,7 +55,7 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
   const [notes, setNotes] = useState("");
   const [paymentType, setPaymentType] = useState<"deposit" | "invoice">("deposit");
   const [loading, setLoading] = useState(false);
-  const [confirmation, setConfirmation] = useState<any>(null);
+  const [confirmation, setConfirmation] = useState<BookingRecord | null>(null);
 
   // Dynamically load Razorpay SDK
   useEffect(() => {
@@ -44,7 +73,6 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
   const totalPrice = pkg.priceINR * travelers;
   // 20% deposit amount
   const depositAmount = Math.round(totalPrice * 0.2);
-  const amountToCharge = paymentType === "deposit" ? depositAmount : totalPrice;
 
   const handleBooking = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -106,7 +134,7 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
               theme: {
                 color: "#D9A441",
               },
-              handler: async function (response: any) {
+              handler: async function (response: RazorpayResponse) {
                 // Verify payment on server
                 await fetch("/api/razorpay/verify-payment", {
                   method: "POST",
@@ -141,7 +169,7 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
             // Simulated / Demo success if testing without live keys
             setConfirmation({
               ...currentBooking,
-              paymentId: `pay_demo_${Date.now().toString().slice(-6)}`,
+              paymentId: generateDemoPaymentId(currentBooking.id),
               paidAmount: depositAmount,
             });
           }
@@ -150,8 +178,9 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
         // Direct invoice request
         setConfirmation(currentBooking);
       }
-    } catch (err: any) {
-      alert(err?.message || "Something went wrong. Please reach out to concierge@aerovatravels.com");
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Something went wrong. Please reach out to concierge@aerovatravels.com";
+      alert(msg);
     } finally {
       setLoading(false);
     }
@@ -215,7 +244,7 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-500">Total Journey Price:</span>
-                <span className="font-semibold text-[#111111]">{formatINR(confirmation.totalPriceINR)}</span>
+                <span className="font-semibold text-[#111111]">{formatINR(confirmation.totalPriceINR || 0)}</span>
               </div>
               {confirmation.paidAmount && (
                 <div className="flex justify-between border-t border-gray-200 pt-2 font-semibold text-emerald-700">
@@ -306,6 +335,19 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
                 placeholder="+91 83176 46088"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
+                className="w-full px-4 py-2.5 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold uppercase tracking-wider text-[#737373] mb-1.5">
+                Special Requests or Notes (Optional)
+              </label>
+              <input
+                type="text"
+                placeholder="e.g. Dietary preferences or milestone celebration"
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
                 className="w-full px-4 py-2.5 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
               />
             </div>

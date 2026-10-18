@@ -1,9 +1,9 @@
-﻿"use client";
+"use client";
 
-import { useState, useMemo, useTransition } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Search, Filter, Star, Clock, MapPin, ArrowRight, RotateCcw } from "lucide-react";
+import { Search, Star, Clock, MapPin, ArrowRight, RotateCcw } from "lucide-react";
 import { Package } from "@/lib/types";
 import { formatINR } from "@/lib/utils";
 
@@ -149,7 +149,7 @@ export default function PackagesCatalogClient({
           <div>
             <select
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as any)}
+              onChange={(e) => setSortBy(e.target.value as "popularity" | "price-asc" | "price-desc" | "duration")}
               className="w-full px-4 py-2.5 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] font-semibold focus:outline-none cursor-pointer"
             >
               <option value="popularity">Sort: Most Popular</option>

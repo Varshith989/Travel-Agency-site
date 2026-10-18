@@ -1,8 +1,8 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/lib/data/journal";
-import { ArrowLeft, Clock, Calendar, Share2, Compass } from "lucide-react";
+import { ArrowLeft, Clock } from "lucide-react";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -31,7 +31,6 @@ export default async function JournalDetailPage({ params }: Props) {
     notFound();
   }
 
-  const related = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
 
   return (
     <article className="pt-28 pb-28 min-h-screen bg-[#F8F7F3]">

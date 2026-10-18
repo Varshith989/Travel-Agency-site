@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -7,18 +7,22 @@ import { experiences } from "@/lib/data/experiences";
 
 export default function TravelExperiences() {
   return (
-    <section className="py-24 bg-[#EFECE6]/50 border-y border-[#171717]/5">
+    <section className="py-28 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#D9A441] mb-2 block">
-            Curated Styles
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#111111] tracking-tight">
-            Travel your way.
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="w-8 h-[1px] bg-[#C29D59]" />
+            <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C29D59]">
+              Travel Moods
+            </span>
+            <span className="w-8 h-[1px] bg-[#C29D59]" />
+          </div>
+          <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-[#0D1315] tracking-[-0.03em] leading-[1.08]">
+            Curated by how you wish to feel.
           </h2>
-          <p className="mt-3 text-base text-[#737373] font-light">
-            Every traveler holds a unique rhythm. Discover our bespoke styles designed around how you wish to experience the world.
+          <p className="mt-4 text-sm sm:text-base text-[#585A57] font-light leading-relaxed">
+            Every journey possesses an emotional signature. Choose the atmosphere that speaks to your present desires.
           </p>
         </div>
 
@@ -28,7 +32,7 @@ export default function TravelExperiences() {
             <Link
               key={exp.id}
               href={`/packages?style=${encodeURIComponent(exp.slug)}`}
-              className="group relative h-80 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 p-6 flex flex-col justify-between"
+              className="group relative h-80 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 p-6 flex flex-col justify-between"
             >
               {/* Background */}
               <Image
@@ -36,28 +40,28 @@ export default function TravelExperiences() {
                 alt={exp.title}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                className="object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20 group-hover:from-black/90 transition-all duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 group-hover:from-black/95 transition-all duration-300" />
 
               {/* Top Tag */}
               <div className="relative z-10 flex items-center justify-between">
-                <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10px] uppercase tracking-wider text-white font-semibold border border-white/20">
+                <span className="px-3 py-1 rounded-full bg-black/40 backdrop-blur-md text-[10px] uppercase tracking-widest text-[#E5D2AE] font-semibold border border-white/10">
                   {exp.packageCount} Journeys
                 </span>
-                <div className="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[#D9A441] group-hover:text-[#111111] transition-all">
+                <div className="w-8 h-8 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[#C29D59] group-hover:text-[#0D1315] transition-all duration-300">
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </div>
               </div>
 
               {/* Bottom Details */}
               <div className="relative z-10 text-white">
-                <h3 className="font-serif text-xl font-bold mb-1 group-hover:text-amber-200 transition-colors">
+                <h3 className="font-serif text-2xl font-normal mb-1 group-hover:text-[#E5D2AE] transition-colors leading-snug">
                   {exp.title}
                 </h3>
-                <p className="text-xs text-gray-300 line-clamp-2 font-light">
+                <p className="text-xs text-gray-300 line-clamp-2 font-light leading-relaxed">
                   {exp.tagline}
                 </p>
               </div>

@@ -1,8 +1,8 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { ItineraryDay } from "@/lib/types";
-import { ChevronDown, MapPin, Utensils, BedDouble, Check } from "lucide-react";
+import { ChevronDown, Utensils, BedDouble, Check } from "lucide-react";
 
 interface Props {
   itinerary: ItineraryDay[];

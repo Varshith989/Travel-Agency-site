@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { Phone, Mail, MessageCircle, MapPin, Clock, Send, CheckCircle2, ArrowUpRight } from "lucide-react";
@@ -48,7 +48,7 @@ export default function ContactClient() {
             Private Concierge Service
           </span>
           <h1 className="font-serif text-4xl sm:text-6xl font-bold text-[#111111] tracking-tight">
-            Let's plan something unforgettable.
+            Let&apos;s plan something unforgettable.
           </h1>
           <p className="mt-4 text-base sm:text-lg text-[#737373] font-light leading-relaxed">
             Our private travel advisors are available 7 days a week to discuss your vision, answer nuanced questions, or begin sculpting your next escape.

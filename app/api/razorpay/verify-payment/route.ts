@@ -1,4 +1,4 @@
-﻿import { NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import crypto from "crypto";
 import { updateBookingStatus } from "@/lib/store";
 
@@ -34,9 +34,10 @@ export async function POST(request: Request) {
       message: "Payment successfully verified",
       paymentId: razorpay_payment_id || `pay_demo_${Date.now()}`,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Payment verification failed";
     return NextResponse.json(
-      { success: false, error: error?.message || "Payment verification failed" },
+      { success: false, error: message },
       { status: 500 }
     );
   }

@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { getAdminStats, getBookings, getEnquiries } from "@/lib/store";
 import { formatINR } from "@/lib/utils";
 import {
@@ -6,12 +6,6 @@ import {
   MessageSquareText,
   TrendingUp,
   Star,
-  MapPin,
-  ArrowRight,
-  User,
-  Clock,
-  CheckCircle2,
-  AlertCircle,
 } from "lucide-react";
 
 export const dynamic = "force-dynamic";

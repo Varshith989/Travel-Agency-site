@@ -1,6 +1,6 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
-import { Compass, ShieldCheck, HeartHandshake, Eye, Sparkles, ArrowRight } from "lucide-react";
+import { Compass, ShieldCheck, HeartHandshake, Eye, ArrowRight } from "lucide-react";
 
 export const metadata = {
   title: "Our Story & Philosophy — Aerova Travels",
@@ -66,7 +66,7 @@ export default function AboutPage() {
             Go farther. Experience more.
           </h1>
           <p className="mt-4 text-base sm:text-lg text-[#737373] font-light leading-relaxed">
-            Born from an uncompromising passion for the world's rare and quiet wonders, Aerova was founded to restore art and intimacy to the travel experience.
+            Born from an uncompromising passion for the world&apos;s rare and quiet wonders, Aerova was founded to restore art and intimacy to the travel experience.
           </p>
         </div>
 
@@ -100,7 +100,7 @@ export default function AboutPage() {
               Why We Travel
             </h2>
             <p className="text-sm sm:text-base text-[#737373] font-light leading-relaxed">
-              In an age of automated booking engines, endless cookie-cutter itineraries, and overcrowded tourist corridors, we believe travelers deserve something far deeper: bespoke stewardship, unhurried pacing, and access to the world's most evocative sanctuaries.
+              In an age of automated booking engines, endless cookie-cutter itineraries, and overcrowded tourist corridors, we believe travelers deserve something far deeper: bespoke stewardship, unhurried pacing, and access to the world&apos;s most evocative sanctuaries.
             </p>
             <p className="text-sm sm:text-base text-[#737373] font-light leading-relaxed">
               Aerova was built on a singular conviction: that a journey should be treated as an original work of art. We design trips that honor your time, ignite your curiosities, and linger in memory long after you return.

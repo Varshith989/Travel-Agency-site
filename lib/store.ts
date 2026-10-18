@@ -1,6 +1,4 @@
-﻿import { Booking, Enquiry, AdminStats } from "./types";
-import { destinations } from "./data/destinations";
-import { packages } from "./data/packages";
+import { Booking, Enquiry, AdminStats } from "./types";
 
 // In-memory data store for server and client access
 let initialBookings: Booking[] = [
