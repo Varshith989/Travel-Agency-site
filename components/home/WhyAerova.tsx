@@ -36,7 +36,7 @@ export default function WhyAerova() {
   ];
 
   return (
-    <section className="py-28 bg-[#0D1315] text-white overflow-hidden relative">
+    <section className="py-16 sm:py-28 bg-[#0D1315] text-white overflow-hidden relative">
       {/* Subtle Texture & Atmospheric Backdrop */}
       <div className="absolute inset-0 opacity-15 mix-blend-luminosity pointer-events-none">
         <Image
@@ -51,7 +51,7 @@ export default function WhyAerova() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Editorial Split Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-end mb-12 sm:mb-20">
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="w-8 h-[1px] bg-[#C29D59]" />
@@ -73,16 +73,16 @@ export default function WhyAerova() {
         </div>
 
         {/* 4 Distinction Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
           {pillars.map((pillar) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={pillar.num}
-                className="group p-8 rounded-3xl bg-[#141C1F] border border-white/10 hover:border-[#C29D59]/50 transition-all duration-500 flex flex-col justify-between hover:-translate-y-1 shadow-lg"
+                className="group p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#141C1F] border border-white/10 hover:border-[#C29D59]/50 transition-all duration-500 flex flex-col justify-between hover:-translate-y-1 shadow-lg"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center justify-between mb-6 sm:mb-8">
                     <span className="font-serif text-3xl font-light text-[#C29D59]">
                       {pillar.num}
                     </span>
@@ -91,12 +91,12 @@ export default function WhyAerova() {
                     </div>
                   </div>
 
-                  <h3 className="font-serif text-xl sm:text-2xl font-normal text-white mb-3 group-hover:text-[#E5D2AE] transition-colors">
+                  <h3 className="font-serif text-xl sm:text-2xl font-normal text-white mb-2 sm:mb-3 group-hover:text-[#E5D2AE] transition-colors">
                     {pillar.title}
                   </h3>
                 </div>
 
-                <p className="text-xs sm:text-sm text-gray-300/90 font-light leading-relaxed mt-4">
+                <p className="text-xs sm:text-sm text-gray-300/90 font-light leading-relaxed mt-3 sm:mt-4">
                   {pillar.description}
                 </p>
               </div>
@@ -105,9 +105,9 @@ export default function WhyAerova() {
         </div>
 
         {/* Global Access Footnote */}
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400 font-light tracking-wide">
+        <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs text-gray-400 font-light tracking-wide text-center sm:text-left">
           <div className="flex items-center gap-2">
-            <Compass className="w-4 h-4 text-[#C29D59]" />
+            <Compass className="w-4 h-4 text-[#C29D59] shrink-0" />
             <span>Direct relationships with premier global luxury hospitability partners</span>
           </div>
           <span className="text-[#C29D59]">Strictly private • Zero undisclosed markups</span>

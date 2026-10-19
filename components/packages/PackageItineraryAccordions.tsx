@@ -22,33 +22,33 @@ export default function PackageItineraryAccordions({ itinerary }: Props) {
         return (
           <div
             key={day.dayNumber}
-            className="rounded-3xl bg-white border border-[#171717]/8 overflow-hidden shadow-sm transition-all duration-200"
+            className="rounded-2xl sm:rounded-3xl bg-white border border-[#171717]/8 overflow-hidden shadow-sm transition-all duration-200"
           >
             <button
               onClick={() => toggleDay(day.dayNumber)}
-              className="w-full p-6 text-left flex items-center justify-between gap-4 hover:bg-[#F8F7F3]/60 transition-colors"
+              className="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-3 sm:gap-4 hover:bg-[#F8F7F3]/60 transition-colors"
             >
-              <div className="flex items-center gap-4">
-                <span className="w-12 h-12 rounded-2xl bg-[#111111] text-[#D9A441] flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-sm">
+              <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+                <span className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#111111] text-[#D9A441] flex items-center justify-center font-mono font-bold text-[10px] sm:text-xs shrink-0 shadow-sm">
                   DAY {day.dayNumber < 10 ? `0${day.dayNumber}` : day.dayNumber}
                 </span>
-                <div>
+                <div className="min-w-0">
                   <span className="text-[10px] uppercase tracking-wider text-[#D9A441] font-semibold block">
                     {day.location}
                   </span>
-                  <h4 className="font-serif text-lg font-bold text-[#111111]">
+                  <h4 className="font-serif text-base sm:text-lg font-bold text-[#111111] truncate">
                     {day.title}
                   </h4>
                 </div>
               </div>
 
-              <div className={`p-2 rounded-full bg-[#F8F7F3] text-[#111111] transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}>
+              <div className={`p-1.5 sm:p-2 rounded-full bg-[#F8F7F3] text-[#111111] shrink-0 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}>
                 <ChevronDown className="w-4 h-4" />
               </div>
             </button>
 
             {isExpanded && (
-              <div className="p-6 pt-0 border-t border-gray-100 mt-2 space-y-4">
+              <div className="p-4 sm:p-6 pt-0 border-t border-gray-100 mt-2 space-y-3 sm:space-y-4">
                 <p className="text-sm text-[#737373] leading-relaxed font-light">
                   {day.description}
                 </p>

@@ -114,25 +114,25 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
   ];
 
   return (
-    <div className="pt-28 pb-28 min-h-screen bg-[#F8F7F3]">
+    <div className="pt-24 sm:pt-28 pb-16 sm:pb-28 min-h-screen bg-[#F8F7F3]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EFECE6] text-[#D9A441] text-xs uppercase tracking-widest font-semibold mb-3">
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#EFECE6] text-[#D9A441] text-[11px] sm:text-xs uppercase tracking-widest font-semibold mb-3">
             <Compass className="w-3.5 h-3.5" />
             <span>Bespoke Travel Architect</span>
           </div>
-          <h1 className="font-serif text-3xl sm:text-5xl font-bold text-[#111111] tracking-tight">
+          <h1 className="font-serif text-2xl sm:text-5xl font-bold text-[#111111] tracking-tight">
             Design Your Private Journey
           </h1>
-          <p className="mt-3 text-sm text-[#737373] font-light">
+          <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm text-[#737373] font-light">
             Share your aspirations. Our senior curators will craft a tailored proposal within 24 hours.
           </p>
         </div>
 
         {/* Progress Stepper */}
         {!confirmation && (
-          <div className="mb-12">
+          <div className="mb-8 sm:mb-12">
             <div className="flex items-center justify-between relative mb-3">
               {stepsList.map((label, idx) => {
                 const stepNum = idx + 1;
@@ -142,15 +142,15 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                 return (
                   <div key={label} className="flex flex-col items-center relative z-10">
                     <div
-                      className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-mono font-bold transition-all duration-300 ${
+                      className={`w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center text-[11px] sm:text-xs font-mono font-bold transition-all duration-300 ${
                         isCompleted
                           ? "bg-[#D9A441] text-[#111111]"
                           : isCurrent
-                          ? "bg-[#111111] text-[#FFFFFF] ring-4 ring-[#D9A441]/30"
+                          ? "bg-[#111111] text-[#FFFFFF] ring-3 sm:ring-4 ring-[#D9A441]/30"
                           : "bg-white text-gray-400 border border-gray-200"
                       }`}
                     >
-                      {isCompleted ? <Check className="w-4 h-4" /> : stepNum}
+                      {isCompleted ? <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> : stepNum}
                     </div>
                     <span
                       className={`hidden sm:block text-[10px] uppercase tracking-wider font-semibold mt-1.5 ${
@@ -163,9 +163,9 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                 );
               })}
               {/* Connecting background track */}
-              <div className="absolute top-4 left-4 right-4 h-[2px] bg-gray-200 -z-0" />
+              <div className="absolute top-3.5 sm:top-4.5 left-3 right-3 sm:left-4 sm:right-4 h-[2px] bg-gray-200 -z-0" />
               <div
-                className="absolute top-4 left-4 h-[2px] bg-[#D9A441] -z-0 transition-all duration-500"
+                className="absolute top-3.5 sm:top-4.5 left-3 sm:left-4 h-[2px] bg-[#D9A441] -z-0 transition-all duration-500"
                 style={{ width: `${((step - 1) / (stepsList.length - 1)) * 100}%` }}
               />
             </div>
@@ -174,25 +174,25 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
 
         {/* Confirmation Screen */}
         {confirmation ? (
-          <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-[#171717]/8 text-center space-y-6">
-            <div className="w-20 h-20 rounded-full bg-emerald-500/10 text-emerald-600 flex items-center justify-center mx-auto">
-              <CheckCircle2 className="w-12 h-12" />
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 sm:p-12 shadow-xl border border-[#171717]/8 text-center space-y-5 sm:space-y-6">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-emerald-500/10 text-emerald-600 flex items-center justify-center mx-auto">
+              <CheckCircle2 className="w-10 h-10 sm:w-12 sm:h-12" />
             </div>
 
             <div>
               <span className="text-xs font-mono font-bold text-[#D9A441] tracking-widest block mb-1">
                 DOSSIER REF: {confirmation.enquiryRef}
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#111111]">
+              <h2 className="font-serif text-2xl sm:text-4xl font-bold text-[#111111]">
                 Your Journey Blueprint is in Motion
               </h2>
-              <p className="text-sm text-[#737373] mt-3 max-w-lg mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#737373] mt-2 sm:mt-3 max-w-lg mx-auto leading-relaxed">
                 Thank you, <strong>{confirmation.customerName}</strong>. Our senior destination architect specializing in <strong>{confirmation.destination}</strong> is reviewing your travel preferences.
               </p>
             </div>
 
             {/* Summary Box */}
-            <div className="p-6 rounded-2xl bg-[#F8F7F3] border border-[#171717]/8 text-left text-xs space-y-3 max-w-md mx-auto">
+            <div className="p-4 sm:p-6 rounded-2xl bg-[#F8F7F3] border border-[#171717]/8 text-left text-xs space-y-2.5 sm:space-y-3 max-w-md mx-auto">
               <div className="flex justify-between">
                 <span className="text-gray-500">Destination:</span>
                 <span className="font-semibold text-[#111111]">{confirmation.destination}</span>
@@ -221,16 +221,16 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
               We have dispatched an acknowledgment to <strong>{confirmation.customerEmail}</strong>. Expect your private itinerary portfolio via WhatsApp or email shortly.
             </p>
 
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="pt-3 sm:pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
               <Link
                 href="/"
-                className="px-8 py-3.5 rounded-full bg-[#111111] text-white text-xs uppercase tracking-widest font-semibold hover:bg-[#D9A441] hover:text-[#111111] transition-colors"
+                className="px-8 py-3.5 rounded-full bg-[#111111] text-white text-xs uppercase tracking-widest font-semibold hover:bg-[#D9A441] hover:text-[#111111] transition-colors text-center"
               >
                 Return to Homepage
               </Link>
               <Link
                 href="/packages"
-                className="px-8 py-3.5 rounded-full border border-[#171717]/20 text-[#171717] text-xs uppercase tracking-widest font-semibold hover:bg-black/5 transition-colors"
+                className="px-8 py-3.5 rounded-full border border-[#171717]/20 text-[#171717] text-xs uppercase tracking-widest font-semibold hover:bg-black/5 transition-colors text-center"
               >
                 Explore More Packages
               </Link>
@@ -238,7 +238,7 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
           </div>
         ) : (
           /* Form Card */
-          <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-[#171717]/8">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 sm:p-10 shadow-xl border border-[#171717]/8">
             {/* Step 1: Destination */}
             {step === 1 && (
               <div className="space-y-6 animate-fade-in">
@@ -251,15 +251,15 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
                   {destinationOptions.map((opt) => (
                     <button
                       key={opt.name}
                       type="button"
                       onClick={() => setDestination(opt.name)}
-                      className={`group relative h-36 rounded-2xl overflow-hidden text-left p-4 flex flex-col justify-end transition-all ${
+                      className={`group relative h-28 sm:h-36 rounded-xl sm:rounded-2xl overflow-hidden text-left p-3 sm:p-4 flex flex-col justify-end transition-all ${
                         destination === opt.name
-                          ? "ring-4 ring-[#D9A441] scale-[1.02]"
+                          ? "ring-3 sm:ring-4 ring-[#D9A441] scale-[1.02]"
                           : "opacity-80 hover:opacity-100"
                       }`}
                     >
@@ -270,10 +270,10 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                         sizes="200px"
                         className="object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
                       <div className="relative z-10 text-white">
-                        <span className="text-[10px] text-gray-300 block">{opt.country}</span>
-                        <span className="font-serif font-bold text-lg">{opt.name}</span>
+                        <span className="text-[9px] sm:text-[10px] text-gray-300 block leading-tight">{opt.country}</span>
+                        <span className="font-serif font-bold text-base sm:text-lg">{opt.name}</span>
                       </div>
                     </button>
                   ))}
@@ -288,7 +288,7 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
                     placeholder="e.g. Iceland, New Zealand, Kenya Safari, Amalfi Coast..."
-                    className="w-full px-4 py-3 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
+                    className="w-full px-4 py-3 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
                   />
                 </div>
               </div>
@@ -296,9 +296,9 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
 
             {/* Step 2: Travel dates & Duration */}
             {step === 2 && (
-              <div className="space-y-6 animate-fade-in">
+              <div className="space-y-5 sm:space-y-6 animate-fade-in">
                 <div>
-                  <h3 className="font-serif text-2xl font-bold text-[#111111]">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#111111]">
                     When do you plan to embark?
                   </h3>
                   <p className="text-xs text-[#737373] mt-1">
@@ -306,15 +306,15 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-[#737373] uppercase tracking-wider mb-2">
+                    <label className="block text-xs font-semibold text-[#737373] uppercase tracking-wider mb-1.5 sm:mb-2">
                       Target Month
                     </label>
                     <select
                       value={travelMonth}
                       onChange={(e) => setTravelMonth(e.target.value)}
-                      className="w-full px-4 py-3 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
+                      className="w-full px-4 py-3 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
                     >
                       {["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December", "Flexible"].map((m) => (
                         <option key={m} value={m}>{m}</option>
@@ -323,13 +323,13 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#737373] uppercase tracking-wider mb-2">
+                    <label className="block text-xs font-semibold text-[#737373] uppercase tracking-wider mb-1.5 sm:mb-2">
                       Travel Year
                     </label>
                     <select
                       value={travelYear}
                       onChange={(e) => setTravelYear(e.target.value)}
-                      className="w-full px-4 py-3 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
+                      className="w-full px-4 py-3 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
                     >
                       <option value="2026">2026</option>
                       <option value="2027">2027</option>
@@ -341,13 +341,13 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                   <label className="block text-xs font-semibold text-[#737373] uppercase tracking-wider mb-2">
                     Ideal Trip Duration
                   </label>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
                     {["5 – 7 Days", "8 – 10 Days", "10 – 14 Days", "15+ Days"].map((dur) => (
                       <button
                         key={dur}
                         type="button"
                         onClick={() => setDurationDays(dur)}
-                        className={`p-3.5 rounded-2xl text-xs font-medium border transition-all ${
+                        className={`p-3 sm:p-3.5 rounded-xl sm:rounded-2xl text-xs font-medium border transition-all ${
                           durationDays === dur
                             ? "bg-[#111111] text-white border-[#111111]"
                             : "bg-[#F8F7F3] text-[#111111] border-[#171717]/5 hover:border-[#D9A441]"
@@ -363,9 +363,9 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
 
             {/* Step 3: Travelers */}
             {step === 3 && (
-              <div className="space-y-6 animate-fade-in">
+              <div className="space-y-5 sm:space-y-6 animate-fade-in">
                 <div>
-                  <h3 className="font-serif text-2xl font-bold text-[#111111]">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#111111]">
                     How many travelers in your party?
                   </h3>
                   <p className="text-xs text-[#737373] mt-1">
@@ -373,7 +373,7 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
                   {[
                     { count: 1, label: "Solo Voyager" },
                     { count: 2, label: "Couple / Duo" },
@@ -384,16 +384,16 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                       key={item.count}
                       type="button"
                       onClick={() => setTravelersCount(item.count)}
-                      className={`p-6 rounded-2xl text-center border transition-all ${
+                      className={`p-4 sm:p-6 rounded-xl sm:rounded-2xl text-center border transition-all ${
                         travelersCount === item.count
                           ? "bg-[#111111] text-white border-[#111111] shadow-md"
                           : "bg-[#F8F7F3] text-[#111111] border-[#171717]/5 hover:border-[#D9A441]"
                       }`}
                     >
-                      <span className="font-serif text-3xl font-bold block mb-1">
+                      <span className="font-serif text-2xl sm:text-3xl font-bold block mb-1">
                         {item.count}{item.count === 6 ? "+" : ""}
                       </span>
-                      <span className="text-xs font-light text-gray-400">
+                      <span className="text-[11px] sm:text-xs font-light text-gray-400">
                         {item.label}
                       </span>
                     </button>
@@ -404,9 +404,9 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
 
             {/* Step 4: Budget */}
             {step === 4 && (
-              <div className="space-y-6 animate-fade-in">
+              <div className="space-y-5 sm:space-y-6 animate-fade-in">
                 <div>
-                  <h3 className="font-serif text-2xl font-bold text-[#111111]">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#111111]">
                     What is your intended investment?
                   </h3>
                   <p className="text-xs text-[#737373] mt-1">
@@ -414,7 +414,7 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {[
                     { label: "Refined Comfort", range: "₹1,00,000 – ₹1,50,000", desc: "4 to 5-star boutique hotels with shared luxury transfers." },
                     { label: "Premium Luxury", range: "₹1,50,000 – ₹2,25,000", desc: "5-star luxury resorts, private chauffeurs, and premier experiences." },
@@ -425,16 +425,16 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                       key={b.range}
                       type="button"
                       onClick={() => setBudgetPerPerson(b.range)}
-                      className={`p-5 rounded-2xl text-left border transition-all ${
+                      className={`p-4 sm:p-5 rounded-xl sm:rounded-2xl text-left border transition-all ${
                         budgetPerPerson === b.range
                           ? "bg-[#111111] text-white border-[#111111] shadow-md"
                           : "bg-[#F8F7F3] text-[#111111] border-[#171717]/5 hover:border-[#D9A441]"
                       }`}
                     >
-                      <span className="font-serif font-bold text-base block mb-1">
+                      <span className="font-serif font-bold text-sm sm:text-base block mb-0.5 sm:mb-1">
                         {b.label}
                       </span>
-                      <span className="text-xs font-mono text-[#D9A441] font-semibold block mb-2">
+                      <span className="text-xs font-mono text-[#D9A441] font-semibold block mb-1.5 sm:mb-2">
                         {b.range} / person
                       </span>
                       <p className="text-[11px] text-gray-400 leading-relaxed font-light">
@@ -448,9 +448,9 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
 
             {/* Step 5: Preferences */}
             {step === 5 && (
-              <div className="space-y-6 animate-fade-in">
+              <div className="space-y-5 sm:space-y-6 animate-fade-in">
                 <div>
-                  <h3 className="font-serif text-2xl font-bold text-[#111111]">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#111111]">
                     Your travel style & stay preferences
                   </h3>
                   <p className="text-xs text-[#737373] mt-1">
@@ -462,7 +462,7 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                   <label className="block text-xs font-semibold text-[#737373] uppercase tracking-wider mb-2">
                     Trip Focus
                   </label>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3">
                     {[
                       "Cultural & Heritage",
                       "Romantic Honeymoon",
@@ -475,7 +475,7 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                         key={s}
                         type="button"
                         onClick={() => setTravelStyle(s)}
-                        className={`p-3 rounded-2xl text-xs font-medium border transition-all ${
+                        className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl text-xs font-medium border transition-all ${
                           travelStyle === s
                             ? "bg-[#111111] text-white border-[#111111]"
                             : "bg-[#F8F7F3] text-[#111111] border-[#171717]/5 hover:border-[#D9A441]"
@@ -491,7 +491,7 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                   <label className="block text-xs font-semibold text-[#737373] uppercase tracking-wider mb-2">
                     Accommodation Type
                   </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
                     {[
                       "5-Star Luxury & Traditional Ryokan",
                       "Overwater Pool Villas",
@@ -501,7 +501,7 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                         key={a}
                         type="button"
                         onClick={() => setAccommodation(a)}
-                        className={`p-3.5 rounded-2xl text-xs font-medium border text-left transition-all ${
+                        className={`p-3 sm:p-3.5 rounded-xl sm:rounded-2xl text-xs font-medium border text-left transition-all ${
                           accommodation === a
                             ? "bg-[#111111] text-white border-[#111111]"
                             : "bg-[#F8F7F3] text-[#111111] border-[#171717]/5 hover:border-[#D9A441]"
@@ -517,9 +517,9 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
 
             {/* Step 6: Contact Information */}
             {step === 6 && (
-              <form onSubmit={handleSubmit} className="space-y-5 animate-fade-in">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 animate-fade-in">
                 <div>
-                  <h3 className="font-serif text-2xl font-bold text-[#111111]">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#111111]">
                     Where should we deliver your itinerary?
                   </h3>
                   <p className="text-xs text-[#737373] mt-1">
@@ -527,7 +527,7 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-[#737373] uppercase tracking-wider mb-1.5">
                       Full Name *
@@ -538,7 +538,7 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                       placeholder="e.g. Dr. Raghav Singhal"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full px-4 py-3 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
+                      className="w-full px-4 py-3 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
                     />
                   </div>
 
@@ -552,12 +552,12 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                       placeholder="raghav@company.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-3 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
+                      className="w-full px-4 py-3 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-[#737373] uppercase tracking-wider mb-1.5">
                       Phone Number / WhatsApp *
@@ -568,7 +568,7 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                       placeholder="+91 98765 43210"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full px-4 py-3 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
+                      className="w-full px-4 py-3 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
                     />
                   </div>
 
@@ -580,7 +580,7 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                       type="text"
                       value={country}
                       onChange={(e) => setCountry(e.target.value)}
-                      className="w-full px-4 py-3 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
+                      className="w-full px-4 py-3 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
                     />
                   </div>
                 </div>
@@ -594,14 +594,14 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                     placeholder="Tell us about special occasions, favorite cuisines, pacing preferences, or specific sights on your wishlist..."
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
-                    className="w-full px-4 py-3 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
+                    className="w-full px-4 py-3 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-4 rounded-full bg-[#111111] text-white text-xs uppercase tracking-widest font-semibold hover:bg-[#D9A441] hover:text-[#111111] transition-all duration-300 disabled:opacity-50 shadow-xl"
+                  className="w-full py-3.5 sm:py-4 px-4 rounded-full bg-[#111111] text-white text-xs uppercase tracking-widest font-semibold hover:bg-[#D9A441] hover:text-[#111111] transition-all duration-300 disabled:opacity-50 shadow-xl"
                 >
                   {loading ? "Transmitting Proposal Request..." : "Request My Itinerary"}
                 </button>
@@ -610,12 +610,12 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
 
             {/* Stepper Navigation Buttons (for steps 1-5) */}
             {step < 6 && (
-              <div className="mt-8 pt-6 border-t border-gray-100 flex items-center justify-between">
+              <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-gray-100 flex items-center justify-between">
                 {step > 1 ? (
                   <button
                     type="button"
                     onClick={handleBack}
-                    className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-[#737373] hover:text-[#111111] transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-[#737373] hover:text-[#111111] transition-colors p-2 sm:p-0"
                   >
                     <ArrowLeft className="w-4 h-4" />
                     <span>Back</span>
@@ -627,7 +627,7 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#111111] text-white text-xs uppercase tracking-wider font-semibold hover:bg-[#D9A441] hover:text-[#111111] transition-all shadow-md"
+                  className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full bg-[#111111] text-white text-xs uppercase tracking-wider font-semibold hover:bg-[#D9A441] hover:text-[#111111] transition-all shadow-md"
                 >
                   <span>Continue</span>
                   <ArrowRight className="w-4 h-4" />

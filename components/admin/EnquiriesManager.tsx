@@ -38,9 +38,9 @@ export default function EnquiriesManager({ initialEnquiries }: Props) {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Top filter bar */}
-      <div className="bg-white rounded-3xl p-6 border border-[#171717]/8 shadow-sm flex items-center justify-between">
+      <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-[#171717]/8 shadow-sm flex items-center justify-between">
         <div className="relative w-full max-w-sm">
           <Search className="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
           <input
@@ -48,13 +48,95 @@ export default function EnquiriesManager({ initialEnquiries }: Props) {
             placeholder="Search leads by customer, destination, ref..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-11 pr-4 py-2.5 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none"
+            className="w-full pl-11 pr-4 py-3 sm:py-2.5 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none"
           />
         </div>
       </div>
 
-      {/* Leads Table */}
-      <div className="bg-white rounded-3xl border border-[#171717]/8 shadow-sm overflow-hidden">
+      {/* Mobile Card List View (Visible on <md) */}
+      <div className="block md:hidden space-y-3">
+        {filtered.map((enq) => (
+          <div
+            key={enq.id}
+            className="p-4 rounded-2xl bg-white border border-[#171717]/8 shadow-sm space-y-3"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="font-mono font-bold text-xs text-[#D9A441] block">
+                  {enq.enquiryRef}
+                </span>
+                <span className="text-[10px] text-gray-400">
+                  {new Date(enq.createdAt).toLocaleDateString()}
+                </span>
+              </div>
+              <span
+                className={`inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                  enq.status === "NEW"
+                    ? "bg-blue-100 text-blue-800"
+                    : enq.status === "QUOTED"
+                    ? "bg-purple-100 text-purple-800"
+                    : enq.status === "CONVERTED"
+                    ? "bg-emerald-100 text-emerald-800"
+                    : "bg-amber-100 text-amber-800"
+                }`}
+              >
+                {enq.status}
+              </span>
+            </div>
+
+            <div>
+              <h4 className="font-serif font-bold text-base text-[#111111]">
+                {enq.destination}
+              </h4>
+              <p className="text-xs text-[#737373] mt-0.5">
+                {enq.customerName} ({enq.customerCountry})
+              </p>
+              <p className="text-[11px] text-gray-400 font-mono mt-0.5">
+                {enq.customerEmail} • {enq.customerPhone}
+              </p>
+            </div>
+
+            <div className="p-3 rounded-xl bg-[#F8F7F3] space-y-1.5 text-xs">
+              <div className="flex justify-between">
+                <span className="text-gray-500">Timeline:</span>
+                <span className="font-medium text-[#111111]">
+                  {enq.travelMonth} {enq.travelYear} ({enq.durationDays})
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Party Size:</span>
+                <span className="font-medium text-[#111111]">{enq.travelersCount} Guests</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Style:</span>
+                <span className="font-medium text-[#111111]">{enq.travelStyle}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-500">Budget:</span>
+                <span className="font-mono font-semibold text-[#D9A441]">{enq.budgetPerPerson}</span>
+              </div>
+            </div>
+
+            <div className="pt-2 flex items-center justify-between gap-2 border-t border-gray-100">
+              <span className="text-xs text-gray-500 font-medium">Update Status:</span>
+              <select
+                value={enq.status}
+                onChange={(e) => handleStatusChange(enq.id, e.target.value as "NEW" | "IN_REVIEW" | "QUOTED" | "CONTACTED" | "CONVERTED")}
+                className="px-3 py-1.5 rounded-xl bg-[#F8F7F3] border border-gray-200 text-xs font-semibold text-[#111111]"
+              >
+                <option value="NEW">New</option>
+                <option value="IN_REVIEW">In Review</option>
+                <option value="QUOTED">Quoted</option>
+                <option value="CONTACTED">Contacted</option>
+                <option value="CONVERTED">Converted</option>
+              </select>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop Leads Table (Visible on md+) */}
+      <div className="hidden md:block bg-white rounded-3xl border border-[#171717]/8 shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead className="bg-[#F8F7F3] border-b border-[#171717]/5 text-gray-500 uppercase tracking-wider font-semibold">

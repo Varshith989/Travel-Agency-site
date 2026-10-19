@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { destinations } from "@/lib/data/destinations";
@@ -40,7 +40,7 @@ export default async function DestinationDetailPage({ params }: Props) {
   return (
     <div className="min-h-screen bg-[#F8F7F3]">
       {/* Cinematic Hero */}
-      <div className="relative h-[75vh] min-h-[500px] flex items-end pb-16 overflow-hidden">
+      <div className="relative h-[65vh] min-h-[440px] sm:h-[75vh] sm:min-h-[500px] flex items-end pb-10 sm:pb-16 overflow-hidden">
         <Image
           src={destination.heroImage}
           alt={destination.name}
@@ -67,15 +67,15 @@ export default async function DestinationDetailPage({ params }: Props) {
             </span>
           </div>
 
-          <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-4">
+          <h1 className="font-serif text-3xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-3 sm:mb-4">
             {destination.name}
           </h1>
 
-          <p className="text-base sm:text-xl text-gray-200 font-light max-w-3xl leading-relaxed">
+          <p className="text-sm sm:text-xl text-gray-200 font-light max-w-3xl leading-relaxed">
             {destination.tagline}
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-6 text-xs text-gray-300 pt-4 border-t border-white/20">
+          <div className="mt-5 sm:mt-6 grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-4 sm:gap-6 text-xs text-gray-300 pt-4 border-t border-white/20">
             <div>
               <span className="text-gray-400 block text-[10px] uppercase tracking-wider">
                 Ideal Duration
@@ -107,7 +107,7 @@ export default async function DestinationDetailPage({ params }: Props) {
       </div>
 
       {/* Main Content Body */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Column: Overview & Experiences */}
           <div className="lg:col-span-8 space-y-16">
@@ -151,21 +151,21 @@ export default async function DestinationDetailPage({ params }: Props) {
               <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D9A441] block mb-2">
                 Unrivaled Moments
               </span>
-              <h2 className="font-serif text-3xl font-bold text-[#111111] mb-8">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#111111] mb-6 sm:mb-8">
                 Top Experiences in {destination.name}
               </h2>
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {destination.topExperiences.map((exp, idx) => (
                   <div
                     key={idx}
-                    className="p-6 rounded-3xl bg-white border border-[#171717]/8 shadow-sm flex flex-col sm:flex-row gap-6 items-center"
+                    className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#171717]/8 shadow-sm flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center"
                   >
-                    <div className="relative w-full sm:w-44 h-36 rounded-2xl overflow-hidden shrink-0">
+                    <div className="relative w-full sm:w-44 h-48 sm:h-36 rounded-xl sm:rounded-2xl overflow-hidden shrink-0">
                       <Image
                         src={exp.image}
                         alt={exp.title}
                         fill
-                        sizes="180px"
+                        sizes="(max-width: 640px) 100vw, 180px"
                         className="object-cover"
                       />
                     </div>
@@ -173,7 +173,7 @@ export default async function DestinationDetailPage({ params }: Props) {
                       <span className="font-mono text-xs text-[#D9A441] font-bold block mb-1">
                         0{idx + 1}
                       </span>
-                      <h3 className="font-serif text-xl font-bold text-[#111111] mb-2">
+                      <h3 className="font-serif text-lg sm:text-xl font-bold text-[#111111] mb-2">
                         {exp.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-[#737373] font-light leading-relaxed">
@@ -190,28 +190,28 @@ export default async function DestinationDetailPage({ params }: Props) {
               <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D9A441] block mb-2">
                 Accommodations
               </span>
-              <h2 className="font-serif text-3xl font-bold text-[#111111] mb-8">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#111111] mb-6 sm:mb-8">
                 Recommended Stays
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {destination.recommendedHotels.map((hotel, idx) => (
                   <div
                     key={idx}
-                    className="bg-white rounded-3xl overflow-hidden border border-[#171717]/8 shadow-sm group"
+                    className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#171717]/8 shadow-sm group"
                   >
                     <div className="relative h-44 w-full">
                       <Image
                         src={hotel.image}
                         alt={hotel.name}
                         fill
-                        sizes="250px"
+                        sizes="(max-width: 640px) 100vw, 250px"
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-black/70 backdrop-blur-md text-[10px] text-white font-medium uppercase tracking-wider">
                         {hotel.tag}
                       </span>
                     </div>
-                    <div className="p-5">
+                    <div className="p-4 sm:p-5">
                       <div className="flex items-center gap-1 text-[#D9A441] text-xs mb-1">
                         <Star className="w-3.5 h-3.5 fill-[#D9A441]" />
                         <span className="font-bold">{hotel.rating}</span>
@@ -231,16 +231,16 @@ export default async function DestinationDetailPage({ params }: Props) {
               <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D9A441] block mb-2">
                 Essential Advisory
               </span>
-              <h2 className="font-serif text-3xl font-bold text-[#111111] mb-6">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#111111] mb-6">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {destination.faqs.map((faq, idx) => (
                   <div
                     key={idx}
-                    className="p-6 rounded-2xl bg-white border border-[#171717]/8 shadow-sm"
+                    className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white border border-[#171717]/8 shadow-sm"
                   >
-                    <h3 className="font-serif font-bold text-base text-[#111111] mb-2">
+                    <h3 className="font-serif font-bold text-sm sm:text-base text-[#111111] mb-1.5 sm:mb-2">
                       {faq.question}
                     </h3>
                     <p className="text-xs sm:text-sm text-[#737373] font-light leading-relaxed">
@@ -253,37 +253,37 @@ export default async function DestinationDetailPage({ params }: Props) {
           </div>
 
           {/* Right Column: Sticky Trip Planning Card & Packages */}
-          <div className="lg:col-span-4 space-y-8">
+          <div className="lg:col-span-4 space-y-6 sm:space-y-8">
             {/* Sticky Lead Card */}
-            <div className="sticky top-28 bg-[#111111] text-white p-8 rounded-3xl shadow-2xl border border-white/10">
+            <div className="sticky top-28 bg-[#111111] text-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl shadow-2xl border border-white/10">
               <span className="text-[10px] uppercase tracking-widest text-[#D9A441] font-semibold block mb-2">
                 Custom Curation
               </span>
-              <h3 className="font-serif text-2xl font-bold mb-3">
+              <h3 className="font-serif text-xl sm:text-2xl font-bold mb-2 sm:mb-3">
                 Plan a Bespoke Trip to {destination.name}
               </h3>
-              <p className="text-xs text-gray-300 font-light leading-relaxed mb-6">
+              <p className="text-xs text-gray-300 font-light leading-relaxed mb-5 sm:mb-6">
                 Connect with our dedicated destination curator to design a private itinerary tailored to your schedule and desires.
               </p>
 
-              <div className="space-y-3 text-xs text-gray-300 mb-8 pb-6 border-b border-white/10">
+              <div className="space-y-2.5 sm:space-y-3 text-xs text-gray-300 mb-6 sm:mb-8 pb-5 sm:pb-6 border-b border-white/10">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#D9A441]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#D9A441] shrink-0" />
                   <span>Private villa or 5-star palace accommodations</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#D9A441]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#D9A441] shrink-0" />
                   <span>Dedicated private English-speaking chauffeur</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#D9A441]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#D9A441] shrink-0" />
                   <span>Exclusive culinary and cultural reservations</span>
                 </div>
               </div>
 
               <Link
                 href={`/plan-trip?destination=${encodeURIComponent(destination.name)}`}
-                className="w-full flex items-center justify-center gap-2 py-4 rounded-full bg-[#D9A441] text-[#111111] text-xs uppercase tracking-widest font-semibold hover:bg-white transition-colors shadow-lg"
+                className="w-full flex items-center justify-center gap-2 py-3.5 sm:py-4 px-4 rounded-full bg-[#D9A441] text-[#111111] text-xs uppercase tracking-widest font-semibold hover:bg-white transition-colors shadow-lg"
               >
                 <span>Request {destination.name} Itinerary</span>
                 <ArrowRight className="w-4 h-4" />
@@ -292,8 +292,8 @@ export default async function DestinationDetailPage({ params }: Props) {
 
             {/* Matching Packages */}
             {relatedPackages.length > 0 && (
-              <div className="p-6 rounded-3xl bg-white border border-[#171717]/8 shadow-sm">
-                <h3 className="font-serif text-lg font-bold text-[#111111] mb-4">
+              <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#171717]/8 shadow-sm">
+                <h3 className="font-serif text-base sm:text-lg font-bold text-[#111111] mb-3 sm:mb-4">
                   Signature Package Available
                 </h3>
                 {relatedPackages.map((pkg) => (

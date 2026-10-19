@@ -124,7 +124,7 @@ export default function DarkCTASection() {
   return (
     <section
       id="inquire"
-      className="relative py-28 bg-[#0D1315] text-white overflow-hidden scroll-mt-12"
+      className="relative py-16 sm:py-28 bg-[#0D1315] text-white overflow-hidden scroll-mt-12"
     >
       {/* Background Atmosphere */}
       <div className="absolute inset-0 z-0 opacity-20 mix-blend-luminosity pointer-events-none">
@@ -140,7 +140,7 @@ export default function DarkCTASection() {
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="w-8 h-[1px] bg-[#C29D59]" />
             <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C29D59]">
@@ -158,7 +158,7 @@ export default function DarkCTASection() {
         </div>
 
         {/* Multi-Step Atelier Container */}
-        <div className="bg-[#141C1F] rounded-3xl p-6 sm:p-10 lg:p-12 border border-white/10 shadow-2xl backdrop-blur-md">
+        <div className="bg-[#141C1F] rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-12 border border-white/10 shadow-2xl backdrop-blur-md">
           {confirmation ? (
             /* Success State */
             <div className="text-center py-10 space-y-6 animate-fade-in max-w-lg mx-auto">
@@ -452,18 +452,18 @@ export default function DarkCTASection() {
               )}
 
               {/* Navigation Controls */}
-              <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between gap-4">
+              <div className="mt-8 pt-6 border-t border-white/10 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
                 {step > 1 ? (
                   <button
                     type="button"
                     onClick={handleBack}
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/20 text-xs uppercase tracking-wider text-gray-300 hover:text-white hover:border-white transition-colors"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full border border-white/20 text-xs uppercase tracking-wider text-gray-300 hover:text-white hover:border-white transition-colors"
                   >
                     <ArrowLeft className="w-3.5 h-3.5" />
                     <span>Back</span>
                   </button>
                 ) : (
-                  <div className="flex items-center gap-2 text-xs text-gray-400">
+                  <div className="flex items-center justify-center sm:justify-start gap-2 text-xs text-gray-400 py-1">
                     <Lock className="w-3.5 h-3.5 text-[#C29D59]" />
                     <span>Strictly private &amp; confidential</span>
                   </div>
@@ -473,7 +473,7 @@ export default function DarkCTASection() {
                   <button
                     type="button"
                     onClick={handleNext}
-                    className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#C29D59] text-[#0D1315] text-xs uppercase tracking-widest font-semibold hover:bg-white transition-all shadow-md group"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 rounded-full bg-[#C29D59] text-[#0D1315] text-xs uppercase tracking-widest font-semibold hover:bg-white transition-all shadow-md group text-center"
                   >
                     <span>Continue to Step 0{step + 1}</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -482,7 +482,7 @@ export default function DarkCTASection() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="inline-flex items-center gap-2 px-9 py-3.5 rounded-full bg-[#C29D59] text-[#0D1315] text-xs uppercase tracking-widest font-semibold hover:bg-white transition-all shadow-xl disabled:opacity-50"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 sm:px-9 py-3.5 rounded-full bg-[#C29D59] text-[#0D1315] text-xs uppercase tracking-widest font-semibold hover:bg-white transition-all shadow-xl disabled:opacity-50 text-center"
                   >
                     <span>{loading ? "Transmitting Dossier..." : "Submit Bespoke Enquiry"}</span>
                     <ArrowRight className="w-4 h-4" />
@@ -494,7 +494,7 @@ export default function DarkCTASection() {
         </div>
 
         {/* Quiet Trust Signals */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center text-xs text-gray-400">
+        <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 text-center text-xs text-gray-400">
           <div className="flex items-center justify-center gap-2">
             <ShieldCheck className="w-4 h-4 text-[#C29D59]" />
             <span>24-Hour Dossier Turnaround</span>

@@ -22,7 +22,22 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent background scroll when mobile drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
 
+  // Close mobile drawer on route navigation
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
   if (isAdmin) {
     return null;
@@ -37,10 +52,10 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
           isScrolled
-            ? "bg-[#FAF8F5]/92 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.03)] border-b border-[#181918]/6 py-4"
+            ? "bg-[#FAF8F5]/92 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.03)] border-b border-[#181918]/6 py-3 sm:py-4"
             : isHomePage
-            ? "bg-gradient-to-b from-black/60 via-black/20 to-transparent py-6"
-            : "bg-[#FAF8F5] border-b border-[#181918]/6 py-5"
+            ? "bg-gradient-to-b from-black/60 via-black/20 to-transparent py-4 sm:py-6"
+            : "bg-[#FAF8F5] border-b border-[#181918]/6 py-3.5 sm:py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -163,10 +178,10 @@ export default function Navbar() {
           role="dialog"
           aria-modal="true"
         >
-          <div className="fixed inset-y-0 right-0 w-full max-w-sm bg-[#FAF8F5] shadow-2xl p-7 flex flex-col justify-between overflow-y-auto">
+          <div className="fixed inset-y-0 right-0 w-full max-w-[85vw] sm:max-w-sm bg-[#FAF8F5] shadow-2xl p-5 sm:p-7 flex flex-col justify-between overflow-y-auto">
             <div>
               {/* Drawer Top */}
-              <div className="flex items-center justify-between pb-6 border-b border-[#181918]/10">
+              <div className="flex items-center justify-between pb-5 sm:pb-6 border-b border-[#181918]/10">
                 <Link
                   href="/"
                   onClick={() => setMobileMenuOpen(false)}

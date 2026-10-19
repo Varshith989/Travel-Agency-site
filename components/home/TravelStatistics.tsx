@@ -93,21 +93,21 @@ export default function TravelStatistics() {
   ];
 
   return (
-    <section className="py-20 bg-[#0D1315] text-white border-y border-white/10">
+    <section className="py-14 sm:py-20 bg-[#0D1315] text-white border-y border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-12">
           {stats.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={idx}
-                className="flex flex-col items-center sm:items-start text-center sm:text-left p-4"
+                className="flex flex-col items-center sm:items-start text-center sm:text-left p-2 sm:p-4"
               >
-                <div className="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#C29D59] mb-4">
-                  <Icon className="w-5 h-5" />
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#C29D59] mb-3 sm:mb-4">
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
 
-                <div className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-[#C29D59] mb-2">
+                <div className="font-serif text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight text-[#C29D59] mb-1 sm:mb-2">
                   <Counter
                     end={item.end}
                     suffix={item.suffix}

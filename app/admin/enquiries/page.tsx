@@ -1,4 +1,4 @@
-﻿import { getEnquiries } from "@/lib/store";
+import { getEnquiries } from "@/lib/store";
 import EnquiriesManager from "@/components/admin/EnquiriesManager";
 
 export const dynamic = "force-dynamic";
@@ -13,7 +13,7 @@ export default function EnquiriesPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-serif text-3xl font-bold text-[#111111]">
+        <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#111111]">
           Bespoke Itinerary Enquiries
         </h1>
         <p className="text-xs text-[#737373] mt-1">

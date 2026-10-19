@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import Image from "next/image";
 import { Clock, ArrowRight, BookOpen } from "lucide-react";
 import { blogPosts } from "@/lib/data/journal";
@@ -13,18 +13,18 @@ export default function JournalIndexPage() {
   const regularArticles = blogPosts.slice(1);
 
   return (
-    <div className="pt-28 pb-28 min-h-screen bg-[#F8F7F3]">
+    <div className="pt-24 sm:pt-28 pb-16 sm:pb-28 min-h-screen bg-[#F8F7F3]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EFECE6] text-[#D9A441] text-xs uppercase tracking-widest font-semibold mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#EFECE6] text-[#D9A441] text-[11px] sm:text-xs uppercase tracking-widest font-semibold mb-4">
             <BookOpen className="w-3.5 h-3.5" />
             <span>Editorial Chronicles</span>
           </div>
-          <h1 className="font-serif text-4xl sm:text-6xl font-bold text-[#111111] tracking-tight">
+          <h1 className="font-serif text-3xl sm:text-6xl font-bold text-[#111111] tracking-tight">
             Stories from the Road
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-[#737373] font-light leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-lg text-[#737373] font-light leading-relaxed">
             Essays on hidden corners, centuries-old ceremonies, culinary masterclasses, and the meditative joy of slow travel.
           </p>
         </div>
@@ -33,10 +33,10 @@ export default function JournalIndexPage() {
         {featuredArticle && (
           <Link
             href={`/journal/${featuredArticle.slug}`}
-            className="group block mb-16 rounded-3xl overflow-hidden bg-white border border-[#171717]/8 shadow-sm hover:shadow-2xl transition-all duration-500"
+            className="group block mb-10 sm:mb-16 rounded-2xl sm:rounded-3xl overflow-hidden bg-white border border-[#171717]/8 shadow-sm hover:shadow-2xl transition-all duration-500"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12">
-              <div className="lg:col-span-7 relative min-h-[380px] lg:min-h-[460px]">
+              <div className="lg:col-span-7 relative min-h-[240px] sm:min-h-[380px] lg:min-h-[460px]">
                 <Image
                   src={featuredArticle.coverImage}
                   alt={featuredArticle.title}
@@ -47,9 +47,9 @@ export default function JournalIndexPage() {
                 />
               </div>
 
-              <div className="lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between">
+              <div className="lg:col-span-5 p-5 sm:p-8 sm:p-12 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-3 text-xs text-[#737373] mb-4">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs text-[#737373] mb-3 sm:mb-4">
                     <span className="px-3 py-1 rounded-full bg-[#111111] text-white text-[10px] uppercase tracking-wider font-semibold">
                       {featuredArticle.category}
                     </span>
@@ -61,18 +61,18 @@ export default function JournalIndexPage() {
                     </span>
                   </div>
 
-                  <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#111111] leading-tight group-hover:text-[#D9A441] transition-colors mb-4">
+                  <h2 className="font-serif text-xl sm:text-3xl lg:text-4xl font-bold text-[#111111] leading-tight group-hover:text-[#D9A441] transition-colors mb-3 sm:mb-4">
                     {featuredArticle.title}
                   </h2>
 
-                  <p className="text-sm text-[#737373] font-light leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-[#737373] font-light leading-relaxed mb-5 sm:mb-6">
                     {featuredArticle.excerpt}
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-gray-100 flex items-center justify-between">
+                <div className="pt-5 sm:pt-6 border-t border-gray-100 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="relative w-9 h-9 rounded-full overflow-hidden border border-[#D9A441]/40">
+                    <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-[#D9A441]/40 shrink-0">
                       <Image
                         src={featuredArticle.authorAvatar}
                         alt={featuredArticle.authorName}
@@ -100,15 +100,15 @@ export default function JournalIndexPage() {
         )}
 
         {/* Regular Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {regularArticles.map((post) => (
             <Link
               key={post.id}
               href={`/journal/${post.slug}`}
-              className="group flex flex-col justify-between bg-white rounded-3xl overflow-hidden border border-[#171717]/8 shadow-sm hover:shadow-xl transition-all duration-300"
+              className="group flex flex-col justify-between bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#171717]/8 shadow-sm hover:shadow-xl transition-all duration-300"
             >
               <div>
-                <div className="relative h-60 w-full overflow-hidden bg-gray-100">
+                <div className="relative h-52 sm:h-60 w-full overflow-hidden bg-gray-100">
                   <Image
                     src={post.coverImage}
                     alt={post.title}
@@ -116,13 +116,13 @@ export default function JournalIndexPage() {
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-[10px] uppercase tracking-wider text-white font-semibold">
+                  <span className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 px-2.5 sm:px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-[10px] uppercase tracking-wider text-white font-semibold">
                     {post.category}
                   </span>
                 </div>
 
-                <div className="p-6">
-                  <div className="flex items-center gap-2 text-[11px] text-[#737373] mb-2.5">
+                <div className="p-5 sm:p-6">
+                  <div className="flex items-center gap-2 text-[11px] text-[#737373] mb-2 sm:mb-2.5">
                     <span>{post.publishedAt}</span>
                     <span>•</span>
                     <span className="flex items-center gap-1">
@@ -131,7 +131,7 @@ export default function JournalIndexPage() {
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-xl font-bold text-[#111111] leading-snug group-hover:text-[#D9A441] transition-colors mb-2 line-clamp-2">
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#111111] leading-snug group-hover:text-[#D9A441] transition-colors mb-2 line-clamp-2">
                     {post.title}
                   </h3>
 
@@ -141,9 +141,9 @@ export default function JournalIndexPage() {
                 </div>
               </div>
 
-              <div className="p-6 pt-0 border-t border-gray-100 mt-2 flex items-center justify-between">
+              <div className="p-5 sm:p-6 pt-0 border-t border-gray-100 mt-2 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
-                  <div className="relative w-7 h-7 rounded-full overflow-hidden border border-[#D9A441]/40">
+                  <div className="relative w-7 h-7 rounded-full overflow-hidden border border-[#D9A441]/40 shrink-0">
                     <Image
                       src={post.authorAvatar}
                       alt={post.authorName}

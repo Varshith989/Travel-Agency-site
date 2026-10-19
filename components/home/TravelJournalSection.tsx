@@ -9,10 +9,10 @@ export default function TravelJournalSection() {
   const [featuredPost, ...otherPosts] = blogPosts;
 
   return (
-    <section className="py-28 bg-[#FAF8F5] border-t border-[#181918]/6">
+    <section className="py-16 sm:py-28 bg-[#FAF8F5] border-t border-[#181918]/6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Editorial Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 gap-6">
           <div>
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="w-8 h-[1px] bg-[#C29D59]" />
@@ -31,7 +31,7 @@ export default function TravelJournalSection() {
 
           <Link
             href="/journal"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-[#0D1315] hover:text-[#C29D59] transition-colors group"
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-[#0D1315] hover:text-[#C29D59] transition-colors group shrink-0"
           >
             <span>Read All Dispatches</span>
             <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -39,14 +39,13 @@ export default function TravelJournalSection() {
         </div>
 
         {/* Asymmetric Magazine Spread Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* Featured Lead Story (7 cols) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
           {featuredPost && (
             <Link
               href={`/journal/${featuredPost.slug}`}
-              className="lg:col-span-7 group bg-white rounded-3xl overflow-hidden border border-[#181918]/8 shadow-[0_4px_30px_rgba(0,0,0,0.02)] hover:shadow-2xl transition-all duration-500 flex flex-col justify-between"
+              className="lg:col-span-7 group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#181918]/8 shadow-[0_4px_30px_rgba(0,0,0,0.02)] hover:shadow-2xl transition-all duration-500 flex flex-col justify-between"
             >
-              <div className="relative h-[340px] sm:h-[400px] w-full overflow-hidden bg-gray-100">
+              <div className="relative h-64 sm:h-[400px] w-full overflow-hidden bg-gray-100">
                 <Image
                   src={featuredPost.coverImage}
                   alt={featuredPost.title}
@@ -55,24 +54,24 @@ export default function TravelJournalSection() {
                   className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <span className="absolute top-6 left-6 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] uppercase tracking-widest text-[#E5D2AE] font-semibold border border-white/10">
+                <span className="absolute top-4 sm:top-6 left-4 sm:left-6 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] uppercase tracking-widest text-[#E5D2AE] font-semibold border border-white/10">
                   {featuredPost.category}
                 </span>
 
-                <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white text-xs">
+                <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 flex items-center justify-between text-white text-xs">
                   <div className="flex items-center gap-2 text-gray-200">
                     <Clock className="w-3.5 h-3.5 text-[#C29D59]" />
                     <span>{featuredPost.readTime}</span>
                     <span>•</span>
                     <span>{featuredPost.publishedAt}</span>
                   </div>
-                  <span className="text-[11px] uppercase tracking-wider text-[#C29D59]">
+                  <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-[#C29D59]">
                     Lead Feature
                   </span>
                 </div>
               </div>
 
-              <div className="p-8 sm:p-10 flex flex-col justify-between flex-1">
+              <div className="p-5 sm:p-8 sm:p-10 flex flex-col justify-between flex-1">
                 <div>
                   <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#0D1315] leading-snug group-hover:text-[#C29D59] transition-colors mb-3">
                     {featuredPost.title}
@@ -82,7 +81,7 @@ export default function TravelJournalSection() {
                   </p>
                 </div>
 
-                <div className="pt-6 border-t border-[#181918]/8 flex items-center justify-between">
+                <div className="pt-5 sm:pt-6 border-t border-[#181918]/8 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="relative w-8 h-8 rounded-full overflow-hidden border border-[#C29D59]/30">
                       <Image
@@ -113,12 +112,12 @@ export default function TravelJournalSection() {
           )}
 
           {/* Secondary Editorial Stories (5 cols) */}
-          <div className="lg:col-span-5 flex flex-col gap-6">
+          <div className="lg:col-span-5 flex flex-col gap-5 sm:gap-6">
             {otherPosts.slice(0, 2).map((post) => (
               <Link
                 key={post.id}
                 href={`/journal/${post.slug}`}
-                className="group bg-white rounded-3xl overflow-hidden border border-[#181918]/8 shadow-[0_4px_24px_rgba(0,0,0,0.02)] hover:shadow-xl transition-all duration-500 p-6 sm:p-7 flex flex-col justify-between flex-1"
+                className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#181918]/8 shadow-[0_4px_24px_rgba(0,0,0,0.02)] hover:shadow-xl transition-all duration-500 p-5 sm:p-7 flex flex-col justify-between flex-1"
               >
                 <div>
                   <div className="flex items-center justify-between text-[11px] text-[#7A7C78] mb-3">

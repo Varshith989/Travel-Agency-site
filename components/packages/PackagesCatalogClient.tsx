@@ -89,17 +89,17 @@ export default function PackagesCatalogClient({
   return (
     <div>
       {/* Filter Toolbar */}
-      <div className="bg-white rounded-3xl p-6 shadow-sm border border-[#171717]/8 mb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 items-center">
+      <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm border border-[#171717]/8 mb-8 sm:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4 items-center">
           {/* Search Box */}
-          <div className="relative">
+          <div className="relative sm:col-span-2 lg:col-span-1">
             <Search className="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Search by country, city, or route..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-11 pr-4 py-2.5 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
+              className="w-full pl-11 pr-4 py-3 sm:py-2.5 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
             />
           </div>
 
@@ -108,7 +108,7 @@ export default function PackagesCatalogClient({
             <select
               value={selectedDestination}
               onChange={(e) => setSelectedDestination(e.target.value)}
-              className="w-full px-4 py-2.5 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none cursor-pointer"
+              className="w-full px-4 py-3 sm:py-2.5 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none cursor-pointer"
             >
               <option value="all">All Destinations</option>
               {destinationsList.filter((d) => d !== "all").map((d) => (
@@ -122,7 +122,7 @@ export default function PackagesCatalogClient({
             <select
               value={selectedStyle}
               onChange={(e) => setSelectedStyle(e.target.value)}
-              className="w-full px-4 py-2.5 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none cursor-pointer"
+              className="w-full px-4 py-3 sm:py-2.5 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none cursor-pointer"
             >
               <option value="all">All Travel Styles</option>
               {stylesList.filter((s) => s !== "all").map((s) => (
@@ -136,7 +136,7 @@ export default function PackagesCatalogClient({
             <select
               value={selectedDuration}
               onChange={(e) => setSelectedDuration(e.target.value)}
-              className="w-full px-4 py-2.5 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none cursor-pointer"
+              className="w-full px-4 py-3 sm:py-2.5 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none cursor-pointer"
             >
               <option value="all">Any Duration</option>
               <option value="short">5 – 6 Days</option>
@@ -150,7 +150,7 @@ export default function PackagesCatalogClient({
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as "popularity" | "price-asc" | "price-desc" | "duration")}
-              className="w-full px-4 py-2.5 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] font-semibold focus:outline-none cursor-pointer"
+              className="w-full px-4 py-3 sm:py-2.5 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] font-semibold focus:outline-none cursor-pointer"
             >
               <option value="popularity">Sort: Most Popular</option>
               <option value="price-asc">Price: Low to High</option>
@@ -161,7 +161,7 @@ export default function PackagesCatalogClient({
         </div>
 
         {/* Results Counter & Reset */}
-        <div className="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-[#737373]">
+        <div className="mt-4 pt-4 border-t border-gray-100 flex flex-col sm:flex-row gap-2 sm:gap-0 items-start sm:items-center justify-between text-xs text-[#737373]">
           <span>
             Showing <strong>{filteredPackages.length}</strong> of {initialPackages.length} curated packages
           </span>
@@ -179,30 +179,30 @@ export default function PackagesCatalogClient({
 
       {/* Package Cards Grid */}
       {filteredPackages.length === 0 ? (
-        <div className="text-center py-20 bg-white rounded-3xl border border-[#171717]/8 p-8">
-          <p className="font-serif text-2xl font-bold text-[#111111] mb-2">
+        <div className="text-center py-16 sm:py-20 bg-white rounded-2xl sm:rounded-3xl border border-[#171717]/8 p-6 sm:p-8">
+          <p className="font-serif text-xl sm:text-2xl font-bold text-[#111111] mb-2">
             No journeys match your exact filter combination.
           </p>
-          <p className="text-sm text-[#737373] mb-6">
+          <p className="text-xs sm:text-sm text-[#737373] mb-6">
             Our curators can tailor a completely bespoke itinerary to any destination.
           </p>
           <button
             onClick={handleReset}
-            className="px-6 py-2.5 rounded-full bg-[#111111] text-white text-xs uppercase tracking-wider font-semibold hover:bg-[#D9A441] hover:text-[#111111] transition-colors"
+            className="px-6 py-3 sm:py-2.5 rounded-full bg-[#111111] text-white text-xs uppercase tracking-wider font-semibold hover:bg-[#D9A441] hover:text-[#111111] transition-colors"
           >
             Clear All Filters
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredPackages.map((pkg) => (
             <div
               key={pkg.id}
-              className="group bg-white rounded-3xl overflow-hidden border border-[#171717]/8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#171717]/8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 {/* Photo & Badges */}
-                <div className="relative h-64 w-full overflow-hidden bg-gray-100">
+                <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-gray-100">
                   <Image
                     src={pkg.heroImage}
                     alt={pkg.title}
@@ -237,13 +237,13 @@ export default function PackagesCatalogClient({
                 </div>
 
                 {/* Package Info */}
-                <div className="p-6">
+                <div className="p-5 sm:p-6">
                   <div className="flex items-center gap-1.5 text-xs text-[#D9A441] uppercase tracking-wider font-semibold mb-1.5">
                     <MapPin className="w-3.5 h-3.5" />
                     <span>{pkg.destinationName}, {pkg.country}</span>
                   </div>
 
-                  <h3 className="font-serif text-xl font-bold text-[#111111] leading-snug group-hover:text-[#D9A441] transition-colors mb-2">
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#111111] leading-snug group-hover:text-[#D9A441] transition-colors mb-2">
                     {pkg.title}
                   </h3>
 
@@ -266,7 +266,7 @@ export default function PackagesCatalogClient({
               </div>
 
               {/* Card Footer with Price & Button */}
-              <div className="p-6 pt-0 border-t border-[#171717]/5 mt-2 flex items-center justify-between">
+              <div className="p-5 sm:p-6 pt-0 border-t border-[#171717]/5 mt-2 flex items-center justify-between">
                 <div>
                   <span className="text-[10px] uppercase tracking-wider text-[#737373] block">
                     From

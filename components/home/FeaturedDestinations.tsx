@@ -22,9 +22,9 @@ export default function FeaturedDestinations() {
     : destinations.filter((d) => d.continent.toLowerCase().includes(activeTab.toLowerCase()) || d.country.toLowerCase().includes(activeTab.toLowerCase())).slice(0, 6);
 
   return (
-    <section id="destinations" className="py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="destinations" className="py-16 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Section Header with Editorial Rhythm */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-8">
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-16 gap-6 sm:gap-8">
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="w-8 h-[1px] bg-[#C29D59]" />
@@ -42,13 +42,13 @@ export default function FeaturedDestinations() {
         </div>
 
         {/* Region Filter Pills & View All */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <div className="inline-flex p-1 rounded-full bg-[#F2EFE9] border border-[#181918]/6 text-xs">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 w-full lg:w-auto">
+          <div className="flex items-center gap-1.5 p-1 rounded-full bg-[#F2EFE9] border border-[#181918]/6 text-xs overflow-x-auto no-scrollbar max-w-full">
             {regions.map((region) => (
               <button
                 key={region.id}
                 onClick={() => setActiveTab(region.id)}
-                className={`px-4 py-2 rounded-full transition-all duration-300 font-medium text-xs tracking-wider uppercase ${
+                className={`px-3.5 sm:px-4 py-2 rounded-full transition-all duration-300 font-medium text-xs tracking-wider uppercase shrink-0 whitespace-nowrap ${
                   activeTab === region.id
                     ? "bg-[#0D1315] text-[#FAF8F5] shadow-sm"
                     : "text-[#585A57] hover:text-[#0D1315]"
@@ -61,7 +61,7 @@ export default function FeaturedDestinations() {
 
           <Link
             href="/destinations"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-[#0D1315] hover:text-[#C29D59] transition-colors group ml-1"
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-[#0D1315] hover:text-[#C29D59] transition-colors group ml-1 shrink-0"
           >
             <span>View All</span>
             <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -70,27 +70,27 @@ export default function FeaturedDestinations() {
       </div>
 
       {/* Asymmetric Editorial Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 sm:gap-8">
         {filteredDestinations.map((dest, idx) => {
           // Asymmetric column spans: Create editorial hierarchy (first card 7 cols, second 5 cols, etc.)
           const colSpan =
             idx === 0
-              ? "lg:col-span-7 h-[500px]"
+              ? "lg:col-span-7 h-[420px] sm:h-[500px]"
               : idx === 1
-              ? "lg:col-span-5 h-[500px]"
+              ? "lg:col-span-5 h-[420px] sm:h-[500px]"
               : idx === 2
-              ? "lg:col-span-4 h-[440px]"
+              ? "lg:col-span-4 h-[380px] sm:h-[440px]"
               : idx === 3
-              ? "lg:col-span-4 h-[440px]"
+              ? "lg:col-span-4 h-[380px] sm:h-[440px]"
               : idx === 4
-              ? "lg:col-span-4 h-[440px]"
-              : "lg:col-span-12 h-[380px]";
+              ? "lg:col-span-4 h-[380px] sm:h-[440px]"
+              : "lg:col-span-12 h-[340px] sm:h-[380px]";
 
           return (
             <Link
               key={dest.id}
               href={`/destinations/${dest.slug}`}
-              className={`group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700 flex flex-col justify-between p-7 sm:p-8 ${colSpan} bg-[#0D1315]`}
+              className={`group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700 flex flex-col justify-between p-5 sm:p-7 sm:p-8 ${colSpan} bg-[#0D1315]`}
             >
               {/* Background Destination Photography */}
               <Image
@@ -107,12 +107,12 @@ export default function FeaturedDestinations() {
 
               {/* Top Meta: Location & Starting Rate */}
               <div className="relative z-10 flex items-center justify-between gap-2">
-                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md text-[11px] font-medium tracking-widest text-white uppercase border border-white/15">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-black/40 backdrop-blur-md text-[10px] sm:text-[11px] font-medium tracking-widest text-white uppercase border border-white/15">
                   <MapPin className="w-3 h-3 text-[#C29D59]" />
                   <span>{dest.country}</span>
                 </span>
 
-                <span className="px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md text-[11px] font-medium tracking-wider text-white border border-white/20">
+                <span className="px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white/15 backdrop-blur-md text-[10px] sm:text-[11px] font-medium tracking-wider text-white border border-white/20">
                   From {formatINR(dest.startingPrice)}
                 </span>
               </div>
@@ -124,7 +124,7 @@ export default function FeaturedDestinations() {
                   <span>{dest.idealDuration} • {dest.bestTimeToVisit.split("(")[0]}</span>
                 </div>
 
-                <h3 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white mb-2 transition-colors duration-300 group-hover:text-[#F3E6D0]">
+                <h3 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white mb-2 transition-colors duration-300 group-hover:text-[#F3E6D0]">
                   {dest.name}
                 </h3>
 
@@ -134,11 +134,11 @@ export default function FeaturedDestinations() {
 
                 {/* Micro-Interaction Footer */}
                 <div className="flex items-center justify-between pt-4 border-t border-white/15 text-xs uppercase tracking-[0.16em] font-medium">
-                  <span className="text-[#C29D59] group-hover:text-white transition-colors">
+                  <span className="text-[#C29D59] group-hover:text-white transition-colors text-[11px] sm:text-xs">
                     Explore Bespoke Portfolio
                   </span>
-                  <div className="w-9 h-9 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[#C29D59] group-hover:text-[#0D1315] transition-all duration-300 group-hover:scale-110">
-                    <ArrowUpRight className="w-4 h-4" />
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[#C29D59] group-hover:text-[#0D1315] transition-all duration-300 group-hover:scale-110">
+                    <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>
                 </div>
               </div>

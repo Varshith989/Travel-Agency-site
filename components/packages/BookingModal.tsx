@@ -187,22 +187,22 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-fade-in overflow-y-auto">
-      <div className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl overflow-hidden border border-[#171717]/10 my-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/75 backdrop-blur-md animate-fade-in overflow-y-auto">
+      <div className="relative w-full max-w-xl bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-[#171717]/10 my-4 sm:my-8">
         {/* Modal Header */}
-        <div className="bg-[#111111] text-white p-6 sm:p-8 flex items-center justify-between">
-          <div>
+        <div className="bg-[#111111] text-white p-4 sm:p-6 sm:p-8 flex items-center justify-between">
+          <div className="pr-2">
             <span className="text-[10px] uppercase tracking-widest text-[#D9A441] font-semibold block mb-1">
               Reserve Journey • Razorpay Enabled
             </span>
-            <h3 className="font-serif text-2xl font-bold">{pkg.title}</h3>
+            <h3 className="font-serif text-xl sm:text-2xl font-bold leading-snug">{pkg.title}</h3>
             <p className="text-xs text-gray-400 mt-0.5">
               {pkg.durationDays} Days / {pkg.durationNights} Nights • {pkg.destinationName}
             </p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-full hover:bg-white/10 text-gray-300 hover:text-white transition-colors"
+            className="p-2 rounded-full hover:bg-white/10 text-gray-300 hover:text-white transition-colors shrink-0"
             aria-label="Close booking modal"
           >
             <X className="w-5 h-5" />
@@ -211,16 +211,16 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
 
         {/* Form or Confirmation */}
         {confirmation ? (
-          <div className="p-8 text-center space-y-6">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-600 flex items-center justify-center mx-auto">
-              <CheckCircle2 className="w-9 h-9" />
+          <div className="p-5 sm:p-8 text-center space-y-5 sm:space-y-6">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-500/10 text-emerald-600 flex items-center justify-center mx-auto">
+              <CheckCircle2 className="w-8 h-8 sm:w-9 sm:h-9" />
             </div>
 
             <div>
               <span className="text-xs font-mono font-bold text-[#D9A441] tracking-widest block mb-1">
                 REFERENCE: {confirmation.bookingRef}
               </span>
-              <h4 className="font-serif text-2xl font-bold text-[#111111]">
+              <h4 className="font-serif text-xl sm:text-2xl font-bold text-[#111111]">
                 {confirmation.paymentId ? "Deposit & Reservation Secured" : "Reservation Request Confirmed"}
               </h4>
               <p className="text-xs text-[#737373] mt-2 max-w-md mx-auto leading-relaxed">
@@ -262,8 +262,8 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
             </button>
           </div>
         ) : (
-          <form onSubmit={handleBooking} className="p-6 sm:p-8 space-y-5">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <form onSubmit={handleBooking} className="p-4 sm:p-6 sm:p-8 space-y-4 sm:space-y-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-[#737373] mb-1.5">
                   Departure Date *
@@ -273,7 +273,7 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
                   required
                   value={travelDate}
                   onChange={(e) => setTravelDate(e.target.value)}
-                  className="w-full px-4 py-2.5 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
+                  className="w-full px-4 py-3 sm:py-2.5 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
                 />
               </div>
 
@@ -284,7 +284,7 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
                 <select
                   value={travelers}
                   onChange={(e) => setTravelers(Number(e.target.value))}
-                  className="w-full px-4 py-2.5 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
+                  className="w-full px-4 py-3 sm:py-2.5 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
                 >
                   <option value={1}>1 Solo Guest</option>
                   <option value={2}>2 Guests (1 Room)</option>
@@ -295,7 +295,7 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-[#737373] mb-1.5">
                   Full Name *
@@ -306,7 +306,7 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
                   placeholder="e.g. Varun Reddy"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-4 py-2.5 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
+                  className="w-full px-4 py-3 sm:py-2.5 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
                 />
               </div>
 
@@ -320,7 +320,7 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
                   placeholder="varun@domain.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-2.5 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
+                  className="w-full px-4 py-3 sm:py-2.5 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
                 />
               </div>
             </div>
@@ -335,7 +335,7 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
                 placeholder="+91 83176 46088"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full px-4 py-2.5 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
+                className="w-full px-4 py-3 sm:py-2.5 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
               />
             </div>
 
@@ -348,7 +348,7 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
                 placeholder="e.g. Dietary preferences or milestone celebration"
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                className="w-full px-4 py-2.5 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
+                className="w-full px-4 py-3 sm:py-2.5 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none focus:ring-1 focus:ring-[#D9A441]"
               />
             </div>
 
@@ -401,12 +401,12 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
             </div>
 
             {/* Price Summary Breakdown */}
-            <div className="p-4 rounded-2xl bg-[#EFECE6]/50 border border-[#171717]/8 flex items-center justify-between">
+            <div className="p-3.5 sm:p-4 rounded-2xl bg-[#EFECE6]/50 border border-[#171717]/8 flex flex-col sm:flex-row gap-2 sm:gap-0 items-start sm:items-center justify-between">
               <div>
                 <span className="text-[10px] uppercase tracking-wider text-[#737373] block">
                   {paymentType === "deposit" ? "Payable Now (20% Deposit)" : "Total Trip Value"}
                 </span>
-                <span className="font-serif text-xl font-bold text-[#111111]">
+                <span className="font-serif text-lg sm:text-xl font-bold text-[#111111]">
                   {formatINR(paymentType === "deposit" ? depositAmount : totalPrice)}
                 </span>
                 {paymentType === "deposit" && (
@@ -415,7 +415,7 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
                   </span>
                 )}
               </div>
-              <div className="text-right text-[10px] text-emerald-700 font-medium">
+              <div className="text-left sm:text-right text-[10px] text-emerald-700 font-medium">
                 <span className="block font-semibold">100% Refundable</span>
                 <span>up to 30 days before departure</span>
               </div>
@@ -424,7 +424,7 @@ export default function BookingModal({ pkg, isOpen, onClose }: Props) {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 rounded-full bg-[#111111] text-white text-xs uppercase tracking-widest font-semibold hover:bg-[#D9A441] hover:text-[#111111] transition-all duration-300 disabled:opacity-50 shadow-xl flex items-center justify-center gap-2"
+              className="w-full py-3.5 sm:py-4 px-4 rounded-full bg-[#111111] text-white text-xs uppercase tracking-widest font-semibold hover:bg-[#D9A441] hover:text-[#111111] transition-all duration-300 disabled:opacity-50 shadow-xl flex items-center justify-center gap-2"
             >
               <Sparkles className="w-4 h-4" />
               <span>

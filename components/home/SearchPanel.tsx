@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -107,7 +107,7 @@ export default function SearchPanel() {
 
             <button
               type="submit"
-              className="h-14 px-6 rounded-full bg-[#111111] text-white flex items-center justify-center gap-2 hover:bg-[#D9A441] hover:text-[#111111] transition-all duration-300 shadow-md shrink-0 font-medium text-xs uppercase tracking-wider"
+              className="h-12 sm:h-14 px-5 sm:px-6 rounded-full bg-[#111111] text-white flex items-center justify-center gap-2 hover:bg-[#D9A441] hover:text-[#111111] transition-all duration-300 shadow-md shrink-0 font-medium text-xs uppercase tracking-wider"
               aria-label="Find My Journey"
             >
               <Search className="w-4 h-4" />

@@ -39,9 +39,9 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Editorial Header */}
-      <div className="text-center max-w-3xl mx-auto mb-20">
+      <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-20">
         <div className="inline-flex items-center gap-2 mb-3">
           <span className="w-8 h-[1px] bg-[#C29D59]" />
           <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C29D59]">
@@ -59,16 +59,16 @@ export default function HowItWorks() {
       </div>
 
       {/* 4 Step Editorial Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8 relative">
         {steps.map((item, idx) => (
           <div
             key={item.num}
-            className="group relative bg-[#FAF8F5] rounded-3xl p-8 border border-[#181918]/8 hover:border-[#C29D59]/40 hover:shadow-xl transition-all duration-500 flex flex-col justify-between"
+            className="group relative bg-[#FAF8F5] rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-[#181918]/8 hover:border-[#C29D59]/40 hover:shadow-xl transition-all duration-500 flex flex-col justify-between"
           >
             <div>
               {/* Refined Numeral Badge */}
-              <div className="flex items-center justify-between mb-8">
-                <span className="font-serif text-4xl font-light text-[#C29D59] tracking-tighter">
+              <div className="flex items-center justify-between mb-6 sm:mb-8">
+                <span className="font-serif text-3xl sm:text-4xl font-light text-[#C29D59] tracking-tighter">
                   {item.num}
                 </span>
                 <span className="text-[10px] uppercase tracking-widest text-[#7A7C78] font-mono">
@@ -76,10 +76,10 @@ export default function HowItWorks() {
                 </span>
               </div>
 
-              <h3 className="font-serif text-2xl font-normal text-[#0D1315] mb-1 group-hover:text-[#C29D59] transition-colors">
+              <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#0D1315] mb-1 group-hover:text-[#C29D59] transition-colors">
                 {item.title}
               </h3>
-              <p className="text-[11px] uppercase tracking-wider text-[#C29D59] font-medium mb-4">
+              <p className="text-[11px] uppercase tracking-wider text-[#C29D59] font-medium mb-3 sm:mb-4">
                 {item.subtitle}
               </p>
 
@@ -88,7 +88,7 @@ export default function HowItWorks() {
               </p>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-[#181918]/6 flex items-center gap-1.5 text-[11px] uppercase tracking-wider font-semibold text-[#0D1315] group-hover:text-[#C29D59] transition-colors">
+            <div className="mt-6 sm:mt-8 pt-4 border-t border-[#181918]/6 flex items-center gap-1.5 text-[11px] uppercase tracking-wider font-semibold text-[#0D1315] group-hover:text-[#C29D59] transition-colors">
               <span>Learn more</span>
               <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </div>
@@ -97,10 +97,10 @@ export default function HowItWorks() {
       </div>
 
       {/* Process CTA */}
-      <div className="mt-16 text-center">
+      <div className="mt-10 sm:mt-16 text-center">
         <Link
           href="/#inquire"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#0D1315] text-[#FAF8F5] text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#C29D59] hover:text-[#0D1315] transition-all shadow-md group"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:py-4 rounded-full bg-[#0D1315] text-[#FAF8F5] text-xs uppercase tracking-[0.2em] font-semibold hover:bg-[#C29D59] hover:text-[#0D1315] transition-all shadow-md group text-center"
         >
           <span>Begin Step 01 Now</span>
           <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />

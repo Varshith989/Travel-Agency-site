@@ -50,10 +50,10 @@ export default function FeaturedPackageShowcase() {
   });
 
   return (
-    <section id="journeys" className="py-28 bg-[#F4F0E8]/60 border-y border-[#181918]/6">
+    <section id="journeys" className="py-16 sm:py-28 bg-[#F4F0E8]/60 border-y border-[#181918]/6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-8">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-14 gap-6 sm:gap-8">
           <div>
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="w-8 h-[1px] bg-[#C29D59]" />
@@ -72,7 +72,7 @@ export default function FeaturedPackageShowcase() {
 
           <Link
             href="/packages"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-[#0D1315] hover:text-[#C29D59] transition-colors group"
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-[#0D1315] hover:text-[#C29D59] transition-colors group shrink-0"
           >
             <span>View All Journeys</span>
             <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -80,7 +80,7 @@ export default function FeaturedPackageShowcase() {
         </div>
 
         {/* Filter Controls Bar */}
-        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-12 pb-6 border-b border-[#181918]/8">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8 sm:mb-12 pb-5 sm:pb-6 border-b border-[#181918]/8">
           {/* Region Tabs */}
           <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
             {regions.map((reg) => (
@@ -118,7 +118,7 @@ export default function FeaturedPackageShowcase() {
         </div>
 
         {/* Itinerary Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredPackages.map((pkg) => (
             <div
               key={pkg.id}
@@ -126,7 +126,7 @@ export default function FeaturedPackageShowcase() {
             >
               {/* Card Header & Imagery */}
               <div>
-                <div className="relative h-64 w-full overflow-hidden bg-gray-100">
+                <div className="relative h-60 sm:h-64 w-full overflow-hidden bg-gray-100">
                   <Image
                     src={pkg.heroImage}
                     alt={pkg.title}
@@ -157,8 +157,8 @@ export default function FeaturedPackageShowcase() {
                 </div>
 
                 {/* Card Body */}
-                <div className="p-7">
-                  <div className="flex items-center gap-4 text-xs text-[#7A7C78] mb-3">
+                <div className="p-5 sm:p-7">
+                  <div className="flex items-center gap-3 sm:gap-4 text-xs text-[#7A7C78] mb-3">
                     <div className="flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5 text-[#C29D59]" />
                       <span>{pkg.durationDays} Days</span>
@@ -193,7 +193,7 @@ export default function FeaturedPackageShowcase() {
               </div>
 
               {/* Card Footer: Pricing & Actions */}
-              <div className="px-7 pb-7 pt-2 flex items-center justify-between border-t border-[#181918]/6">
+              <div className="px-5 pb-5 sm:px-7 sm:pb-7 pt-2 flex items-center justify-between border-t border-[#181918]/6">
                 <div>
                   <span className="text-[10px] uppercase tracking-wider text-[#7A7C78] block">
                     Starting from

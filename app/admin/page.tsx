@@ -16,11 +16,11 @@ export default function AdminDashboardPage() {
   const enquiries = getEnquiries();
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="font-serif text-3xl font-bold text-[#111111]">
+          <h1 className="font-serif text-2xl sm:text-3xl font-bold text-[#111111]">
             Executive Dashboard
           </h1>
           <p className="text-xs text-[#737373] mt-1">
@@ -28,16 +28,16 @@ export default function AdminDashboardPage() {
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
           <Link
             href="/admin/bookings"
-            className="px-4 py-2 rounded-xl bg-[#111111] text-white text-xs font-semibold hover:bg-[#D9A441] hover:text-[#111111] transition-colors"
+            className="flex-1 sm:flex-none text-center px-4 py-2.5 sm:py-2 rounded-xl bg-[#111111] text-white text-xs font-semibold hover:bg-[#D9A441] hover:text-[#111111] transition-colors"
           >
             Manage Bookings
           </Link>
           <Link
             href="/admin/enquiries"
-            className="px-4 py-2 rounded-xl bg-white border border-[#171717]/10 text-xs font-semibold hover:border-[#111111] transition-colors"
+            className="flex-1 sm:flex-none text-center px-4 py-2.5 sm:py-2 rounded-xl bg-white border border-[#171717]/10 text-xs font-semibold hover:border-[#111111] transition-colors"
           >
             View Enquiries
           </Link>
@@ -45,16 +45,16 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* KPI Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
         {/* Revenue */}
-        <div className="p-6 rounded-3xl bg-white border border-[#171717]/8 shadow-sm">
-          <div className="flex items-center justify-between text-xs text-[#737373] mb-3">
-            <span className="uppercase tracking-wider font-semibold">Total Revenue</span>
-            <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+        <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#171717]/8 shadow-sm">
+          <div className="flex items-center justify-between text-xs text-[#737373] mb-2 sm:mb-3">
+            <span className="uppercase tracking-wider font-semibold text-[10px] sm:text-xs">Total Revenue</span>
+            <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
               <TrendingUp className="w-4 h-4" />
             </div>
           </div>
-          <div className="font-serif text-2xl sm:text-3xl font-bold text-[#111111]">
+          <div className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-[#111111]">
             {formatINR(stats.totalRevenue)}
           </div>
           <span className="text-[10px] text-emerald-600 font-semibold block mt-1">
@@ -63,14 +63,14 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* Total Bookings */}
-        <div className="p-6 rounded-3xl bg-white border border-[#171717]/8 shadow-sm">
-          <div className="flex items-center justify-between text-xs text-[#737373] mb-3">
-            <span className="uppercase tracking-wider font-semibold">Total Bookings</span>
-            <div className="w-8 h-8 rounded-xl bg-amber-50 text-[#D9A441] flex items-center justify-center">
+        <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#171717]/8 shadow-sm">
+          <div className="flex items-center justify-between text-xs text-[#737373] mb-2 sm:mb-3">
+            <span className="uppercase tracking-wider font-semibold text-[10px] sm:text-xs">Total Bookings</span>
+            <div className="w-8 h-8 rounded-xl bg-amber-50 text-[#D9A441] flex items-center justify-center shrink-0">
               <CalendarCheck className="w-4 h-4" />
             </div>
           </div>
-          <div className="font-serif text-2xl sm:text-3xl font-bold text-[#111111]">
+          <div className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-[#111111]">
             {stats.totalBookings}
           </div>
           <span className="text-[10px] text-[#737373] block mt-1">
@@ -79,14 +79,14 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* Total Inbound Enquiries */}
-        <div className="p-6 rounded-3xl bg-white border border-[#171717]/8 shadow-sm">
-          <div className="flex items-center justify-between text-xs text-[#737373] mb-3">
-            <span className="uppercase tracking-wider font-semibold">Bespoke Enquiries</span>
-            <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+        <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#171717]/8 shadow-sm">
+          <div className="flex items-center justify-between text-xs text-[#737373] mb-2 sm:mb-3">
+            <span className="uppercase tracking-wider font-semibold text-[10px] sm:text-xs">Bespoke Enquiries</span>
+            <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
               <MessageSquareText className="w-4 h-4" />
             </div>
           </div>
-          <div className="font-serif text-2xl sm:text-3xl font-bold text-[#111111]">
+          <div className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-[#111111]">
             {stats.totalEnquiries}
           </div>
           <span className="text-[10px] text-[#D9A441] font-semibold block mt-1">
@@ -95,14 +95,14 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* Average Rating */}
-        <div className="p-6 rounded-3xl bg-white border border-[#171717]/8 shadow-sm">
-          <div className="flex items-center justify-between text-xs text-[#737373] mb-3">
-            <span className="uppercase tracking-wider font-semibold">Guest Satisfaction</span>
-            <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center">
+        <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#171717]/8 shadow-sm">
+          <div className="flex items-center justify-between text-xs text-[#737373] mb-2 sm:mb-3">
+            <span className="uppercase tracking-wider font-semibold text-[10px] sm:text-xs">Guest Satisfaction</span>
+            <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center shrink-0">
               <Star className="w-4 h-4 fill-amber-500" />
             </div>
           </div>
-          <div className="font-serif text-2xl sm:text-3xl font-bold text-[#111111]">
+          <div className="font-serif text-xl sm:text-2xl lg:text-3xl font-bold text-[#111111]">
             {stats.averageRating} / 5.0
           </div>
           <span className="text-[10px] text-[#737373] block mt-1">
@@ -112,12 +112,12 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Two Column Layout: Recent Bookings & Popular Destinations */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
         {/* Recent Bookings (7 cols) */}
-        <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-[#171717]/8 shadow-sm">
-          <div className="flex items-center justify-between mb-6">
+        <div className="lg:col-span-7 bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-[#171717]/8 shadow-sm">
+          <div className="flex items-center justify-between mb-5 sm:mb-6">
             <div>
-              <h3 className="font-serif text-xl font-bold text-[#111111]">
+              <h3 className="font-serif text-lg sm:text-xl font-bold text-[#111111]">
                 Recent Client Bookings
               </h3>
               <p className="text-xs text-[#737373]">Live reservation transactions</p>
@@ -130,11 +130,11 @@ export default function AdminDashboardPage() {
             </Link>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {bookings.slice(0, 4).map((b) => (
               <div
                 key={b.id}
-                className="p-4 rounded-2xl bg-[#F8F7F3] border border-[#171717]/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8F7F3] border border-[#171717]/5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3"
               >
                 <div>
                   <div className="flex items-center gap-2 mb-1">
@@ -159,7 +159,7 @@ export default function AdminDashboardPage() {
                   </p>
                 </div>
 
-                <div className="text-right sm:border-l sm:border-gray-200 sm:pl-4">
+                <div className="text-left sm:text-right sm:border-l sm:border-gray-200 sm:pl-4 pt-2 sm:pt-0 border-t sm:border-t-0 border-gray-200/60">
                   <span className="font-serif font-bold text-sm text-[#111111] block">
                     {formatINR(b.totalPriceINR)}
                   </span>
@@ -173,15 +173,15 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* Popular Destinations & Recent Enquiries (5 cols) */}
-        <div className="lg:col-span-5 space-y-8">
+        <div className="lg:col-span-5 space-y-6 sm:space-y-8">
           {/* Popular Destinations */}
-          <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#171717]/8 shadow-sm">
-            <h3 className="font-serif text-xl font-bold text-[#111111] mb-1">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-[#171717]/8 shadow-sm">
+            <h3 className="font-serif text-lg sm:text-xl font-bold text-[#111111] mb-1">
               Top Desired Destinations
             </h3>
-            <p className="text-xs text-[#737373] mb-6">Booking share per location</p>
+            <p className="text-xs text-[#737373] mb-5 sm:mb-6">Booking share per location</p>
 
-            <div className="space-y-4">
+            <div className="space-y-3.5 sm:space-y-4">
               {stats.popularDestinations.map((dest) => (
                 <div key={dest.name} className="space-y-1.5">
                   <div className="flex justify-between text-xs">
@@ -200,13 +200,13 @@ export default function AdminDashboardPage() {
           </div>
 
           {/* New Inbound Leads */}
-          <div className="bg-[#111111] text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-white/10">
+          <div className="bg-[#111111] text-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-white/10">
             <div className="flex items-center justify-between mb-4">
               <div>
                 <span className="text-[10px] uppercase tracking-widest text-[#D9A441] font-semibold block">
                   Incoming Pipeline
                 </span>
-                <h4 className="font-serif text-lg font-bold">Latest Enquiry</h4>
+                <h4 className="font-serif text-base sm:text-lg font-bold">Latest Enquiry</h4>
               </div>
               <Link
                 href="/admin/enquiries"
@@ -217,7 +217,7 @@ export default function AdminDashboardPage() {
             </div>
 
             {enquiries[0] ? (
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2 text-xs">
+              <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white/5 border border-white/10 space-y-2 text-xs">
                 <div className="flex justify-between items-center">
                   <span className="font-serif font-bold text-white text-sm">
                     {enquiries[0].customerName}

@@ -30,16 +30,16 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#0D1315] text-[#FAF8F5] pt-24 pb-14 border-t border-white/10">
+    <footer className="bg-[#0D1315] text-[#FAF8F5] pt-14 sm:pt-24 pb-12 sm:pb-14 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Newsletter & Brand statement */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 pb-12 sm:pb-16 border-b border-white/10 items-center">
           <div className="lg:col-span-6 space-y-4">
             <Link href="/" className="inline-flex items-center gap-3">
               <div className="w-9 h-9 rounded-full bg-[#C29D59] flex items-center justify-center text-[#0D1315]">
                 <Compass className="w-4 h-4" />
               </div>
-              <span className="font-serif text-2xl font-normal tracking-[0.22em] text-white uppercase">
+              <span className="font-serif text-xl sm:text-2xl font-normal tracking-[0.22em] text-white uppercase">
                 AEROVA TRAVELS
               </span>
             </Link>
@@ -65,7 +65,7 @@ export default function Footer() {
                 Thank you. You have been welcomed to the private Aerova Dispatch.
               </div>
             ) : (
-              <form onSubmit={handleSubscribe} className="flex items-center max-w-md">
+              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row items-stretch sm:items-center max-w-md gap-2.5 sm:gap-0">
                 <div className="relative flex-1">
                   <Mail className="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
                   <input
@@ -74,12 +74,12 @@ export default function Footer() {
                     placeholder="Enter your email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-11 pr-4 py-3.5 bg-white/5 border border-white/15 rounded-full text-xs text-white placeholder-gray-400 focus:outline-none focus:border-[#C29D59] transition-colors"
+                    className="w-full pl-11 pr-4 py-3 sm:py-3.5 bg-white/5 border border-white/15 rounded-full text-xs text-white placeholder-gray-400 focus:outline-none focus:border-[#C29D59] transition-colors"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="ml-2 px-6 py-3.5 rounded-full bg-[#C29D59] text-[#0D1315] text-xs font-semibold uppercase tracking-wider hover:bg-white transition-colors shrink-0"
+                  className="sm:ml-2 px-6 py-3 sm:py-3.5 rounded-full bg-[#C29D59] text-[#0D1315] text-xs font-semibold uppercase tracking-wider hover:bg-white transition-colors shrink-0 text-center"
                 >
                   Join
                 </button>
@@ -89,7 +89,7 @@ export default function Footer() {
         </div>
 
         {/* 4 Column Directory Links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-16 border-b border-white/10 text-xs">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 py-10 sm:py-16 border-b border-white/10 text-xs">
           <div>
             <h5 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C29D59] mb-5">
               Portfolios
@@ -209,7 +209,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Social & Copyright */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400 text-center md:text-left">
           <p>© 2026 Aerova Travels. All rights reserved. Quiet luxury curated globally.</p>
           <div className="flex items-center gap-6">
             <a

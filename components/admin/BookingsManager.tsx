@@ -42,9 +42,9 @@ export default function BookingsManager({ initialBookings }: Props) {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Top filter bar */}
-      <div className="bg-white rounded-3xl p-6 border border-[#171717]/8 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-[#171717]/8 shadow-sm flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
         <div className="relative w-full sm:w-80">
           <Search className="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
           <input
@@ -52,16 +52,16 @@ export default function BookingsManager({ initialBookings }: Props) {
             placeholder="Search by client, ref, or package..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-11 pr-4 py-2.5 bg-[#F8F7F3] rounded-2xl text-xs text-[#111111] focus:outline-none"
+            className="w-full pl-11 pr-4 py-3 sm:py-2.5 bg-[#F8F7F3] rounded-2xl text-base sm:text-xs text-[#111111] focus:outline-none"
           />
         </div>
 
-        <div className="flex items-center gap-2 w-full sm:w-auto">
+        <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-1 w-full sm:w-auto">
           {["all", "CONFIRMED", "PENDING", "COMPLETED"].map((st) => (
             <button
               key={st}
               onClick={() => setStatusFilter(st)}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors ${
+              className={`px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors whitespace-nowrap shrink-0 ${
                 statusFilter === st
                   ? "bg-[#111111] text-white"
                   : "bg-[#F8F7F3] text-[#737373] hover:text-[#111111]"
@@ -73,8 +73,77 @@ export default function BookingsManager({ initialBookings }: Props) {
         </div>
       </div>
 
-      {/* Bookings Table */}
-      <div className="bg-white rounded-3xl border border-[#171717]/8 shadow-sm overflow-hidden">
+      {/* Mobile Card List View (Visible on <md) */}
+      <div className="block md:hidden space-y-3">
+        {filtered.map((b) => (
+          <div
+            key={b.id}
+            className="p-4 rounded-2xl bg-white border border-[#171717]/8 shadow-sm space-y-3"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="font-mono font-bold text-xs text-[#D9A441] block">
+                  {b.bookingRef}
+                </span>
+                <span className="text-[10px] text-gray-400">
+                  {new Date(b.createdAt).toLocaleDateString()}
+                </span>
+              </div>
+              <span
+                className={`inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                  b.status === "CONFIRMED"
+                    ? "bg-emerald-100 text-emerald-800"
+                    : b.status === "PENDING"
+                    ? "bg-amber-100 text-amber-800"
+                    : "bg-gray-100 text-gray-800"
+                }`}
+              >
+                {b.status}
+              </span>
+            </div>
+
+            <div>
+              <h4 className="font-serif font-bold text-base text-[#111111]">
+                {b.packageTitle}
+              </h4>
+              <p className="text-xs text-[#737373] mt-0.5">
+                {b.customerName} • {b.travelers} Guests
+              </p>
+              <p className="text-[11px] text-gray-400 font-mono mt-0.5">
+                {b.customerEmail} • {b.customerPhone}
+              </p>
+            </div>
+
+            <div className="flex items-center justify-between pt-2.5 border-t border-gray-100">
+              <div>
+                <span className="text-[10px] text-gray-400 block uppercase">Travel Date</span>
+                <span className="font-mono text-xs font-semibold text-[#111111]">{b.travelDate}</span>
+              </div>
+              <div className="text-right">
+                <span className="text-[10px] text-gray-400 block uppercase">Total</span>
+                <span className="font-serif font-bold text-sm text-[#111111]">{formatINR(b.totalPriceINR)}</span>
+              </div>
+            </div>
+
+            <div className="pt-2 flex items-center justify-between gap-2 border-t border-gray-100">
+              <span className="text-xs text-gray-500 font-medium">Update Status:</span>
+              <select
+                value={b.status}
+                onChange={(e) => handleStatusChange(b.id, e.target.value as "CONFIRMED" | "PENDING" | "COMPLETED" | "CANCELLED")}
+                className="px-3 py-1.5 rounded-xl bg-[#F8F7F3] border border-gray-200 text-xs font-semibold text-[#111111]"
+              >
+                <option value="CONFIRMED">Confirm</option>
+                <option value="PENDING">Pending</option>
+                <option value="COMPLETED">Completed</option>
+                <option value="CANCELLED">Cancel</option>
+              </select>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop Bookings Table (Visible on md+) */}
+      <div className="hidden md:block bg-white rounded-3xl border border-[#171717]/8 shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead className="bg-[#F8F7F3] border-b border-[#171717]/5 text-gray-500 uppercase tracking-wider font-semibold">

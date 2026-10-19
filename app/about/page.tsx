@@ -54,24 +54,24 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="pt-28 pb-28 min-h-screen bg-[#F8F7F3]">
+    <div className="pt-24 sm:pt-28 pb-16 sm:pb-28 min-h-screen bg-[#F8F7F3]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EFECE6] text-[#D9A441] text-xs uppercase tracking-widest font-semibold mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-20">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#EFECE6] text-[#D9A441] text-[11px] sm:text-xs uppercase tracking-widest font-semibold mb-4">
             <Compass className="w-3.5 h-3.5" />
             <span>The Aerova Legacy</span>
           </div>
-          <h1 className="font-serif text-4xl sm:text-6xl font-bold text-[#111111] tracking-tight">
+          <h1 className="font-serif text-3xl sm:text-6xl font-bold text-[#111111] tracking-tight">
             Go farther. Experience more.
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-[#737373] font-light leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-lg text-[#737373] font-light leading-relaxed">
             Born from an uncompromising passion for the world&apos;s rare and quiet wonders, Aerova was founded to restore art and intimacy to the travel experience.
           </p>
         </div>
 
         {/* Cinematic Imagery Banner */}
-        <div className="relative h-[60vh] min-h-[440px] rounded-3xl overflow-hidden shadow-2xl mb-24">
+        <div className="relative h-[50vh] min-h-[300px] sm:h-[60vh] sm:min-h-[440px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl mb-14 sm:mb-24">
           <Image
             src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=2160&q=85"
             alt="Aerova Swiss Alps Expedition"
@@ -80,49 +80,49 @@ export default function AboutPage() {
             className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/85 via-transparent to-black/20" />
-          <div className="absolute bottom-10 left-8 sm:left-14 max-w-xl text-white">
+          <div className="absolute bottom-6 left-5 sm:bottom-10 sm:left-14 max-w-xl text-white pr-4">
             <span className="text-[10px] uppercase tracking-widest text-[#D9A441] font-semibold block mb-1">
               Our Vision
             </span>
-            <p className="font-serif text-xl sm:text-2xl font-light italic">
+            <p className="font-serif text-lg sm:text-2xl font-light italic">
               “Travel is not merely the crossing of borders. It is an expansion of the spirit.”
             </p>
           </div>
         </div>
 
         {/* Our Story & Mission */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
-          <div className="lg:col-span-6 space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-14 sm:mb-24">
+          <div className="lg:col-span-6 space-y-4 sm:space-y-6">
             <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D9A441] block">
               Our Genesis
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#111111] leading-tight">
+            <h2 className="font-serif text-2xl sm:text-4xl font-bold text-[#111111] leading-tight">
               Why We Travel
             </h2>
-            <p className="text-sm sm:text-base text-[#737373] font-light leading-relaxed">
+            <p className="text-xs sm:text-base text-[#737373] font-light leading-relaxed">
               In an age of automated booking engines, endless cookie-cutter itineraries, and overcrowded tourist corridors, we believe travelers deserve something far deeper: bespoke stewardship, unhurried pacing, and access to the world&apos;s most evocative sanctuaries.
             </p>
-            <p className="text-sm sm:text-base text-[#737373] font-light leading-relaxed">
+            <p className="text-xs sm:text-base text-[#737373] font-light leading-relaxed">
               Aerova was built on a singular conviction: that a journey should be treated as an original work of art. We design trips that honor your time, ignite your curiosities, and linger in memory long after you return.
             </p>
           </div>
 
-          <div className="lg:col-span-6 grid grid-cols-2 gap-4">
-            <div className="relative h-64 rounded-3xl overflow-hidden shadow-md">
+          <div className="lg:col-span-6 grid grid-cols-2 gap-3 sm:gap-4">
+            <div className="relative h-44 sm:h-64 rounded-2xl sm:rounded-3xl overflow-hidden shadow-md">
               <Image
                 src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80"
                 alt="Japan Travel"
                 fill
-                sizes="300px"
+                sizes="(max-width: 640px) 50vw, 300px"
                 className="object-cover"
               />
             </div>
-            <div className="relative h-64 rounded-3xl overflow-hidden shadow-md mt-8">
+            <div className="relative h-44 sm:h-64 rounded-2xl sm:rounded-3xl overflow-hidden shadow-md mt-6 sm:mt-8">
               <Image
                 src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=600&q=80"
                 alt="Maldives Lagoon"
                 fill
-                sizes="300px"
+                sizes="(max-width: 640px) 50vw, 300px"
                 className="object-cover"
               />
             </div>
@@ -130,29 +130,29 @@ export default function AboutPage() {
         </div>
 
         {/* Core Values */}
-        <div className="mb-24">
-          <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="mb-14 sm:mb-24">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14">
             <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D9A441] block mb-2">
               Our Core Pillars
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#111111]">
+            <h2 className="font-serif text-2xl sm:text-4xl font-bold text-[#111111]">
               The Values That Guide Us
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {values.map((v, i) => {
               const Icon = v.icon;
               return (
                 <div
                   key={i}
-                  className="p-8 rounded-3xl bg-white border border-[#171717]/8 shadow-sm flex flex-col justify-between"
+                  className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-[#171717]/8 shadow-sm flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-2xl bg-[#111111] text-[#D9A441] flex items-center justify-center mb-6">
-                      <Icon className="w-6 h-6" />
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#111111] text-[#D9A441] flex items-center justify-center mb-5 sm:mb-6">
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
-                    <h3 className="font-serif text-xl font-bold text-[#111111] mb-3">
+                    <h3 className="font-serif text-lg sm:text-xl font-bold text-[#111111] mb-2 sm:mb-3">
                       {v.title}
                     </h3>
                   </div>
@@ -166,26 +166,26 @@ export default function AboutPage() {
         </div>
 
         {/* Curators / Team */}
-        <div className="mb-20">
-          <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="mb-14 sm:mb-20">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14">
             <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D9A441] block mb-2">
               The Curators
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#111111]">
+            <h2 className="font-serif text-2xl sm:text-4xl font-bold text-[#111111]">
               Destination Architects
             </h2>
-            <p className="mt-3 text-xs sm:text-sm text-[#737373] font-light">
+            <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm text-[#737373] font-light">
               Our team consists of passionate explorers, linguists, and cultural connoisseurs stationed across global hubs.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {team.map((member, i) => (
               <div
                 key={i}
-                className="bg-white rounded-3xl overflow-hidden border border-[#171717]/8 shadow-sm group text-center p-6"
+                className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#171717]/8 shadow-sm group text-center p-5 sm:p-6"
               >
-                <div className="relative w-28 h-28 mx-auto rounded-full overflow-hidden mb-4 border-2 border-[#D9A441]/30">
+                <div className="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto rounded-full overflow-hidden mb-3 sm:mb-4 border-2 border-[#D9A441]/30">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -207,17 +207,17 @@ export default function AboutPage() {
         </div>
 
         {/* Closing CTA */}
-        <div className="rounded-3xl bg-[#111111] text-white p-12 text-center relative overflow-hidden">
+        <div className="rounded-2xl sm:rounded-3xl bg-[#111111] text-white p-6 sm:p-12 text-center relative overflow-hidden">
           <div className="max-w-2xl mx-auto relative z-10">
-            <h3 className="font-serif text-3xl sm:text-4xl font-bold mb-4">
+            <h3 className="font-serif text-2xl sm:text-4xl font-bold mb-3 sm:mb-4">
               Ready to begin your personal chapter?
             </h3>
-            <p className="text-xs sm:text-sm text-gray-300 font-light mb-8">
+            <p className="text-xs sm:text-sm text-gray-300 font-light mb-6 sm:mb-8">
               Speak directly with an Aerova curator to design a tailored luxury itinerary.
             </p>
             <Link
               href="/plan-trip"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#D9A441] text-[#111111] text-xs uppercase tracking-widest font-semibold hover:bg-white transition-colors"
+              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#D9A441] text-[#111111] text-xs uppercase tracking-widest font-semibold hover:bg-white transition-colors"
             >
               <span>Start Planning With Us</span>
               <ArrowRight className="w-4 h-4" />
