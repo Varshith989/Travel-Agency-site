@@ -7,9 +7,9 @@ import { ArrowDown, ArrowUpRight, Compass, Shield, Sparkles } from "lucide-react
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-20 w-full max-w-full">
       {/* Cinematic Full-Bleed Imagery with Art-Directed Lighting */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=2560&q=90"
           alt="Pristine alpine vista at dawn"
@@ -23,7 +23,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#0D1315]/30 to-[#0D1315]/80" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white mt-12 sm:mt-16">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white mt-12 sm:mt-16 w-full max-w-full">
         {/* Subtle Atelier Tag */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}

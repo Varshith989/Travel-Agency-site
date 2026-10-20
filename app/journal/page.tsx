@@ -13,10 +13,10 @@ export default function JournalIndexPage() {
   const regularArticles = blogPosts.slice(1);
 
   return (
-    <div className="pt-24 sm:pt-28 pb-16 sm:pb-28 min-h-screen bg-[#F8F7F3]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-24 sm:pt-28 pb-16 sm:pb-28 min-h-screen bg-[#F8F7F3] w-full max-w-full overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 w-full max-w-full">
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#EFECE6] text-[#D9A441] text-[11px] sm:text-xs uppercase tracking-widest font-semibold mb-4">
             <BookOpen className="w-3.5 h-3.5" />
             <span>Editorial Chronicles</span>
@@ -33,10 +33,10 @@ export default function JournalIndexPage() {
         {featuredArticle && (
           <Link
             href={`/journal/${featuredArticle.slug}`}
-            className="group block mb-10 sm:mb-16 rounded-2xl sm:rounded-3xl overflow-hidden bg-white border border-[#171717]/8 shadow-sm hover:shadow-2xl transition-all duration-500"
+            className="group block mb-10 sm:mb-16 rounded-2xl sm:rounded-3xl overflow-hidden bg-white border border-[#171717]/8 shadow-sm hover:shadow-2xl transition-all duration-500 w-full max-w-full"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-12">
-              <div className="lg:col-span-7 relative min-h-[240px] sm:min-h-[380px] lg:min-h-[460px]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 w-full max-w-full">
+              <div className="lg:col-span-7 relative min-h-[240px] sm:min-h-[380px] lg:min-h-[460px] w-full">
                 <Image
                   src={featuredArticle.coverImage}
                   alt={featuredArticle.title}
@@ -47,7 +47,7 @@ export default function JournalIndexPage() {
                 />
               </div>
 
-              <div className="lg:col-span-5 p-5 sm:p-8 sm:p-12 flex flex-col justify-between">
+              <div className="lg:col-span-5 p-5 sm:p-8 sm:p-12 flex flex-col justify-between w-full max-w-full">
                 <div>
                   <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs text-[#737373] mb-3 sm:mb-4">
                     <span className="px-3 py-1 rounded-full bg-[#111111] text-white text-[10px] uppercase tracking-wider font-semibold">
@@ -99,13 +99,13 @@ export default function JournalIndexPage() {
           </Link>
         )}
 
-        {/* Regular Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* Regular Grid - 1 col on mobile, 2 on md, 3 on lg */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-full">
           {regularArticles.map((post) => (
             <Link
               key={post.id}
               href={`/journal/${post.slug}`}
-              className="group flex flex-col justify-between bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#171717]/8 shadow-sm hover:shadow-xl transition-all duration-300"
+              className="group flex flex-col justify-between bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#171717]/8 shadow-sm hover:shadow-xl transition-all duration-300 w-full max-w-full"
             >
               <div>
                 <div className="relative h-52 sm:h-60 w-full overflow-hidden bg-gray-100">
@@ -157,7 +157,7 @@ export default function JournalIndexPage() {
 
                 <div className="inline-flex items-center gap-1 text-xs uppercase tracking-wider font-semibold text-[#111111] group-hover:text-[#D9A441] transition-colors">
                   <span>Read</span>
-                  <ArrowRight className="w-3 h-3" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               </div>
             </Link>

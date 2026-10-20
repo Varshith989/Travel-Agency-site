@@ -124,7 +124,7 @@ export default function DarkCTASection() {
   return (
     <section
       id="inquire"
-      className="relative py-16 sm:py-28 bg-[#0D1315] text-white overflow-hidden scroll-mt-12"
+      className="relative py-16 sm:py-28 bg-[#0D1315] text-white overflow-hidden scroll-mt-12 w-full max-w-full"
     >
       {/* Background Atmosphere */}
       <div className="absolute inset-0 z-0 opacity-20 mix-blend-luminosity pointer-events-none">
@@ -138,7 +138,7 @@ export default function DarkCTASection() {
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-[#0D1315] via-[#0D1315]/90 to-[#0D1315]" />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
           <div className="inline-flex items-center gap-2 mb-3">
@@ -158,7 +158,7 @@ export default function DarkCTASection() {
         </div>
 
         {/* Multi-Step Atelier Container */}
-        <div className="bg-[#141C1F] rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-12 border border-white/10 shadow-2xl backdrop-blur-md">
+        <div className="bg-[#141C1F] rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-12 border border-white/10 shadow-2xl backdrop-blur-md w-full max-w-full overflow-hidden">
           {confirmation ? (
             /* Success State */
             <div className="text-center py-10 space-y-6 animate-fade-in max-w-lg mx-auto">
@@ -207,9 +207,9 @@ export default function DarkCTASection() {
             </div>
           ) : (
             /* Form Steps */
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="w-full max-w-full">
               {/* Progress Stepper */}
-              <div className="flex items-center justify-between pb-8 mb-8 border-b border-white/10">
+              <div className="flex items-center justify-between pb-8 mb-8 border-b border-white/10 w-full">
                 <div className="flex items-center gap-3">
                   <span className="font-serif text-2xl sm:text-3xl font-light text-[#C29D59]">
                     0{step}
@@ -244,27 +244,27 @@ export default function DarkCTASection() {
 
               {/* Step 1: Destination & Travel Style */}
               {step === 1 && (
-                <div className="space-y-8 animate-fade-in">
+                <div className="space-y-8 animate-fade-in w-full max-w-full">
                   <div>
                     <label className="text-xs uppercase tracking-widest text-gray-300 font-medium block mb-4">
                       Where would you like to wander?
                     </label>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 w-full max-w-full">
                       {destinationPresets.map((dest) => (
                         <button
                           type="button"
                           key={dest.name}
                           onClick={() => setDestination(dest.name)}
-                          className={`p-4 rounded-2xl border text-left transition-all ${
+                          className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl border text-left transition-all ${
                             destination === dest.name
                               ? "bg-[#C29D59]/15 border-[#C29D59] text-white shadow-md"
                               : "bg-white/5 border-white/10 text-gray-300 hover:border-white/30"
                           }`}
                         >
-                          <span className="font-serif text-base font-medium block text-white mb-0.5">
+                          <span className="font-serif text-sm sm:text-base font-medium block text-white mb-0.5 truncate">
                             {dest.name}
                           </span>
-                          <span className="text-[11px] text-gray-400 line-clamp-1">
+                          <span className="text-[10px] sm:text-[11px] text-gray-400 line-clamp-1">
                             {dest.sub}
                           </span>
                         </button>
@@ -276,13 +276,13 @@ export default function DarkCTASection() {
                     <label className="text-xs uppercase tracking-widest text-gray-300 font-medium block mb-3">
                       Preferred Travel Mood
                     </label>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 w-full max-w-full">
                       {travelStylePresets.map((style) => (
                         <button
                           type="button"
                           key={style}
                           onClick={() => setTravelStyle(style)}
-                          className={`p-3 rounded-xl border text-xs text-center font-medium transition-all ${
+                          className={`p-2.5 sm:p-3 rounded-xl border text-[11px] sm:text-xs text-center font-medium transition-all ${
                             travelStyle === style
                               ? "bg-[#C29D59] text-[#0D1315] border-[#C29D59]"
                               : "bg-white/5 border-white/10 text-gray-300 hover:bg-white/10"
@@ -298,8 +298,8 @@ export default function DarkCTASection() {
 
               {/* Step 2: Season, Duration & Party */}
               {step === 2 && (
-                <div className="space-y-8 animate-fade-in">
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div className="space-y-8 animate-fade-in w-full max-w-full">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 w-full max-w-full">
                     <div>
                       <label className="text-xs uppercase tracking-widest text-gray-300 font-medium block mb-2">
                         Timing & Season
@@ -375,7 +375,7 @@ export default function DarkCTASection() {
 
                   <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3 text-xs text-gray-300">
                     <Sparkles className="w-4 h-4 text-[#C29D59] shrink-0" />
-                    <span>
+                    <span className="truncate">
                       Selected: <strong>{destination}</strong> • {travelStyle} • {duration} for {travelers}
                     </span>
                   </div>
@@ -384,8 +384,8 @@ export default function DarkCTASection() {
 
               {/* Step 3: Coordinates & Desires */}
               {step === 3 && (
-                <div className="space-y-6 animate-fade-in">
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                <div className="space-y-6 animate-fade-in w-full max-w-full">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 w-full max-w-full">
                     <div>
                       <label className="text-xs uppercase tracking-widest text-gray-300 font-medium block mb-2">
                         Full Name *

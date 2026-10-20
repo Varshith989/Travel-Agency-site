@@ -115,7 +115,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${playfair.variable} ${inter.variable} scroll-smooth antialiased`}
+      className={`${cormorant.variable} ${playfair.variable} ${inter.variable} scroll-smooth antialiased w-full max-w-full overflow-x-hidden`}
     >
       <head>
         <script
@@ -123,9 +123,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#181918] font-sans selection:bg-[#C29D59]/25 selection:text-[#0D1315]">
+      <body className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#181918] font-sans selection:bg-[#C29D59]/25 selection:text-[#0D1315] w-full max-w-full overflow-x-hidden relative">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 w-full max-w-full overflow-x-hidden">{children}</main>
         <Footer />
         <FloatingWhatsApp />
       </body>

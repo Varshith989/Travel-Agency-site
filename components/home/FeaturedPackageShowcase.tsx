@@ -50,10 +50,10 @@ export default function FeaturedPackageShowcase() {
   });
 
   return (
-    <section id="journeys" className="py-16 sm:py-28 bg-[#F4F0E8]/60 border-y border-[#181918]/6">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="journeys" className="py-16 sm:py-28 bg-[#F4F0E8]/60 border-y border-[#181918]/6 w-full max-w-full overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-14 gap-6 sm:gap-8">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-14 gap-6 sm:gap-8 w-full max-w-full">
           <div>
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="w-8 h-[1px] bg-[#C29D59]" />
@@ -80,14 +80,14 @@ export default function FeaturedPackageShowcase() {
         </div>
 
         {/* Filter Controls Bar */}
-        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8 sm:mb-12 pb-5 sm:pb-6 border-b border-[#181918]/8">
-          {/* Region Tabs */}
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-8 sm:mb-12 pb-5 sm:pb-6 border-b border-[#181918]/8 w-full max-w-full min-w-0">
+          {/* Region Tabs with isolated horizontal scroll */}
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 w-full max-w-full min-w-0">
             {regions.map((reg) => (
               <button
                 key={reg.id}
                 onClick={() => setRegionFilter(reg.id)}
-                className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium whitespace-nowrap transition-all duration-300 ${
+                className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium whitespace-nowrap shrink-0 transition-all duration-300 ${
                   regionFilter === reg.id
                     ? "bg-[#0D1315] text-[#FAF8F5] shadow-sm"
                     : "bg-white/80 hover:bg-white text-[#585A57] border border-[#181918]/6"
@@ -99,7 +99,7 @@ export default function FeaturedPackageShowcase() {
           </div>
 
           {/* Style Filter */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <span className="text-[11px] uppercase tracking-wider text-[#7A7C78] hidden sm:inline">
               Style:
             </span>
@@ -117,12 +117,12 @@ export default function FeaturedPackageShowcase() {
           </div>
         </div>
 
-        {/* Itinerary Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* Itinerary Cards Grid - 1 column under md, 2 under lg, 3 on lg+ */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-full">
           {filteredPackages.map((pkg) => (
             <div
               key={pkg.id}
-              className="group bg-white rounded-3xl overflow-hidden border border-[#181918]/8 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col justify-between"
+              className="group bg-white rounded-3xl overflow-hidden border border-[#181918]/8 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.08)] transition-all duration-500 flex flex-col justify-between w-full max-w-full"
             >
               {/* Card Header & Imagery */}
               <div>

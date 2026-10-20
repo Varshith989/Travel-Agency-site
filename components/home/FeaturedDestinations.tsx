@@ -22,9 +22,9 @@ export default function FeaturedDestinations() {
     : destinations.filter((d) => d.continent.toLowerCase().includes(activeTab.toLowerCase()) || d.country.toLowerCase().includes(activeTab.toLowerCase())).slice(0, 6);
 
   return (
-    <section id="destinations" className="py-16 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="destinations" className="py-16 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full overflow-hidden">
       {/* Section Header with Editorial Rhythm */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-16 gap-6 sm:gap-8">
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-16 gap-6 sm:gap-8 w-full max-w-full">
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="w-8 h-[1px] bg-[#C29D59]" />
@@ -42,8 +42,8 @@ export default function FeaturedDestinations() {
         </div>
 
         {/* Region Filter Pills & View All */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 w-full lg:w-auto">
-          <div className="flex items-center gap-1.5 p-1 rounded-full bg-[#F2EFE9] border border-[#181918]/6 text-xs overflow-x-auto no-scrollbar max-w-full">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 w-full lg:w-auto min-w-0 max-w-full">
+          <div className="flex items-center gap-1.5 p-1 rounded-full bg-[#F2EFE9] border border-[#181918]/6 text-xs overflow-x-auto no-scrollbar w-full max-w-full min-w-0 shrink-0">
             {regions.map((region) => (
               <button
                 key={region.id}
@@ -70,7 +70,7 @@ export default function FeaturedDestinations() {
       </div>
 
       {/* Asymmetric Editorial Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 sm:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 sm:gap-8 w-full max-w-full">
         {filteredDestinations.map((dest, idx) => {
           // Asymmetric column spans: Create editorial hierarchy (first card 7 cols, second 5 cols, etc.)
           const colSpan =
@@ -90,7 +90,7 @@ export default function FeaturedDestinations() {
             <Link
               key={dest.id}
               href={`/destinations/${dest.slug}`}
-              className={`group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700 flex flex-col justify-between p-5 sm:p-7 sm:p-8 ${colSpan} bg-[#0D1315]`}
+              className={`group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700 flex flex-col justify-between p-5 sm:p-7 sm:p-8 ${colSpan} bg-[#0D1315] w-full max-w-full`}
             >
               {/* Background Destination Photography */}
               <Image
@@ -106,22 +106,22 @@ export default function FeaturedDestinations() {
               <div className="absolute inset-0 bg-black/20" />
 
               {/* Top Meta: Location & Starting Rate */}
-              <div className="relative z-10 flex items-center justify-between gap-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-black/40 backdrop-blur-md text-[10px] sm:text-[11px] font-medium tracking-widest text-white uppercase border border-white/15">
-                  <MapPin className="w-3 h-3 text-[#C29D59]" />
+              <div className="relative z-10 flex items-center justify-between gap-2 max-w-full">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-black/40 backdrop-blur-md text-[10px] sm:text-[11px] font-medium tracking-widest text-white uppercase border border-white/15 shrink-0 truncate">
+                  <MapPin className="w-3 h-3 text-[#C29D59] shrink-0" />
                   <span>{dest.country}</span>
                 </span>
 
-                <span className="px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white/15 backdrop-blur-md text-[10px] sm:text-[11px] font-medium tracking-wider text-white border border-white/20">
+                <span className="px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white/15 backdrop-blur-md text-[10px] sm:text-[11px] font-medium tracking-wider text-white border border-white/20 shrink-0">
                   From {formatINR(dest.startingPrice)}
                 </span>
               </div>
 
               {/* Bottom Editorial Content with Hover Reveals */}
-              <div className="relative z-10 text-white">
+              <div className="relative z-10 text-white w-full max-w-full">
                 <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-[#C29D59] font-medium mb-1.5">
-                  <Compass className="w-3 h-3" />
-                  <span>{dest.idealDuration} • {dest.bestTimeToVisit.split("(")[0]}</span>
+                  <Compass className="w-3 h-3 shrink-0" />
+                  <span className="truncate">{dest.idealDuration} • {dest.bestTimeToVisit.split("(")[0]}</span>
                 </div>
 
                 <h3 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white mb-2 transition-colors duration-300 group-hover:text-[#F3E6D0]">
@@ -137,7 +137,7 @@ export default function FeaturedDestinations() {
                   <span className="text-[#C29D59] group-hover:text-white transition-colors text-[11px] sm:text-xs">
                     Explore Bespoke Portfolio
                   </span>
-                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[#C29D59] group-hover:text-[#0D1315] transition-all duration-300 group-hover:scale-110">
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[#C29D59] group-hover:text-[#0D1315] transition-all duration-300 group-hover:scale-110 shrink-0">
                     <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>
                 </div>

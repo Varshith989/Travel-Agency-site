@@ -35,9 +35,11 @@ export default function Navbar() {
   }, [mobileMenuOpen]);
 
   // Close mobile drawer on route navigation
-  useEffect(() => {
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
     setMobileMenuOpen(false);
-  }, [pathname]);
+  }
 
   if (isAdmin) {
     return null;
@@ -50,7 +52,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out w-full max-w-full ${
           isScrolled
             ? "bg-[#FAF8F5]/92 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.03)] border-b border-[#181918]/6 py-3 sm:py-4"
             : isHomePage
@@ -58,12 +60,12 @@ export default function Navbar() {
             : "bg-[#FAF8F5] border-b border-[#181918]/6 py-3.5 sm:py-5"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
+          <div className="flex items-center justify-between w-full max-w-full">
             {/* Brand Emblem */}
             <Link
               href="/"
-              className="group flex items-center gap-3 focus:outline-none"
+              className="group flex items-center gap-3 focus:outline-none shrink-0"
               aria-label="Aerova Travels Homepage"
             >
               <div
@@ -253,7 +255,7 @@ export default function Navbar() {
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-3.5 h-3.5 text-[#C29D59]" />
-                <span>concierge@aerovatravels.com</span>
+                <span className="break-all sm:break-normal">concierge@aerovatravels.com</span>
               </div>
               <p className="pt-2 text-[11px] italic font-serif text-[#7A7C78]">
                 “Curating the world&apos;s quiet sanctuaries.”
@@ -265,3 +267,4 @@ export default function Navbar() {
     </>
   );
 }
+

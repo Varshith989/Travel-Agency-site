@@ -6,9 +6,9 @@ import { testimonials } from "@/lib/data/testimonials";
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-16 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full overflow-hidden">
       {/* Editorial Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-20">
+      <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-20 w-full max-w-full">
         <div className="inline-flex items-center gap-2 mb-3">
           <span className="w-8 h-[1px] bg-[#C29D59]" />
           <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C29D59]">
@@ -26,11 +26,11 @@ export default function TestimonialsSection() {
       </div>
 
       {/* Editorial Pull-Quote Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 w-full max-w-full">
         {testimonials.map((item) => (
           <div
             key={item.id}
-            className="p-6 sm:p-8 sm:p-12 rounded-2xl sm:rounded-3xl bg-white border border-[#181918]/8 shadow-[0_4px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.06)] transition-all duration-500 flex flex-col justify-between relative group"
+            className="p-5 sm:p-8 sm:p-12 rounded-2xl sm:rounded-3xl bg-white border border-[#181918]/8 shadow-[0_4px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.06)] transition-all duration-500 flex flex-col justify-between relative group w-full max-w-full"
           >
             <div>
               {/* Stars & Subtle Quote Watermark */}
@@ -40,7 +40,7 @@ export default function TestimonialsSection() {
                     <Star key={i} className="w-3.5 h-3.5 fill-[#C29D59] text-[#C29D59]" />
                   ))}
                 </div>
-                <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-[#C29D59]/20 transition-transform duration-500 group-hover:scale-110" />
+                <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-[#C29D59]/20 transition-transform duration-500 group-hover:scale-110 shrink-0" />
               </div>
 
               {/* Editorial Pull-Quote */}

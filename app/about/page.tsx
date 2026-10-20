@@ -54,10 +54,10 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="pt-24 sm:pt-28 pb-16 sm:pb-28 min-h-screen bg-[#F8F7F3]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-24 sm:pt-28 pb-16 sm:pb-28 min-h-screen bg-[#F8F7F3] w-full max-w-full overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-20 w-full max-w-full">
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#EFECE6] text-[#D9A441] text-[11px] sm:text-xs uppercase tracking-widest font-semibold mb-4">
             <Compass className="w-3.5 h-3.5" />
             <span>The Aerova Legacy</span>
@@ -71,7 +71,7 @@ export default function AboutPage() {
         </div>
 
         {/* Cinematic Imagery Banner */}
-        <div className="relative h-[50vh] min-h-[300px] sm:h-[60vh] sm:min-h-[440px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl mb-14 sm:mb-24">
+        <div className="relative h-[50vh] min-h-[300px] sm:h-[60vh] sm:min-h-[440px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl mb-14 sm:mb-24 w-full max-w-full">
           <Image
             src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=2160&q=85"
             alt="Aerova Swiss Alps Expedition"
@@ -91,8 +91,8 @@ export default function AboutPage() {
         </div>
 
         {/* Our Story & Mission */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-14 sm:mb-24">
-          <div className="lg:col-span-6 space-y-4 sm:space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-14 sm:mb-24 w-full max-w-full">
+          <div className="lg:col-span-6 space-y-4 sm:space-y-6 w-full max-w-full">
             <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D9A441] block">
               Our Genesis
             </span>
@@ -107,7 +107,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="lg:col-span-6 grid grid-cols-2 gap-3 sm:gap-4">
+          <div className="lg:col-span-6 grid grid-cols-2 gap-3 sm:gap-4 w-full max-w-full">
             <div className="relative h-44 sm:h-64 rounded-2xl sm:rounded-3xl overflow-hidden shadow-md">
               <Image
                 src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=600&q=80"
@@ -130,8 +130,8 @@ export default function AboutPage() {
         </div>
 
         {/* Core Values */}
-        <div className="mb-14 sm:mb-24">
-          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14">
+        <div className="mb-14 sm:mb-24 w-full max-w-full">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14 w-full max-w-full">
             <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D9A441] block mb-2">
               Our Core Pillars
             </span>
@@ -140,16 +140,16 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 w-full max-w-full">
             {values.map((v, i) => {
               const Icon = v.icon;
               return (
                 <div
                   key={i}
-                  className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-[#171717]/8 shadow-sm flex flex-col justify-between"
+                  className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-[#171717]/8 shadow-sm flex flex-col justify-between w-full max-w-full"
                 >
                   <div>
-                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#111111] text-[#D9A441] flex items-center justify-center mb-5 sm:mb-6">
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#111111] text-[#D9A441] flex items-center justify-center mb-5 sm:mb-6 shrink-0">
                       <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
                     <h3 className="font-serif text-lg sm:text-xl font-bold text-[#111111] mb-2 sm:mb-3">
@@ -166,8 +166,8 @@ export default function AboutPage() {
         </div>
 
         {/* Curators / Team */}
-        <div className="mb-14 sm:mb-20">
-          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14">
+        <div className="mb-14 sm:mb-20 w-full max-w-full">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14 w-full max-w-full">
             <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D9A441] block mb-2">
               The Curators
             </span>
@@ -179,11 +179,11 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full max-w-full">
             {team.map((member, i) => (
               <div
                 key={i}
-                className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#171717]/8 shadow-sm group text-center p-5 sm:p-6"
+                className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#171717]/8 shadow-sm group text-center p-5 sm:p-6 w-full max-w-full"
               >
                 <div className="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto rounded-full overflow-hidden mb-3 sm:mb-4 border-2 border-[#D9A441]/30">
                   <Image
@@ -207,8 +207,8 @@ export default function AboutPage() {
         </div>
 
         {/* Closing CTA */}
-        <div className="rounded-2xl sm:rounded-3xl bg-[#111111] text-white p-6 sm:p-12 text-center relative overflow-hidden">
-          <div className="max-w-2xl mx-auto relative z-10">
+        <div className="rounded-2xl sm:rounded-3xl bg-[#111111] text-white p-6 sm:p-12 text-center relative overflow-hidden w-full max-w-full">
+          <div className="max-w-2xl mx-auto relative z-10 w-full max-w-full">
             <h3 className="font-serif text-2xl sm:text-4xl font-bold mb-3 sm:mb-4">
               Ready to begin your personal chapter?
             </h3>

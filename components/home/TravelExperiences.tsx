@@ -7,10 +7,10 @@ import { experiences } from "@/lib/data/experiences";
 
 export default function TravelExperiences() {
   return (
-    <section className="py-16 sm:py-28 bg-[#FAF8F5]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-28 bg-[#FAF8F5] w-full max-w-full overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16 w-full max-w-full">
           <div className="inline-flex items-center gap-2 mb-3">
             <span className="w-8 h-[1px] bg-[#C29D59]" />
             <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C29D59]">
@@ -27,12 +27,12 @@ export default function TravelExperiences() {
         </div>
 
         {/* 8 Distinct Experience Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 w-full max-w-full">
           {experiences.map((exp) => (
             <Link
               key={exp.id}
               href={`/packages?style=${encodeURIComponent(exp.slug)}`}
-              className="group relative h-72 sm:h-80 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 p-5 sm:p-6 flex flex-col justify-between"
+              className="group relative h-72 sm:h-80 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 p-5 sm:p-6 flex flex-col justify-between w-full max-w-full"
             >
               {/* Background */}
               <Image

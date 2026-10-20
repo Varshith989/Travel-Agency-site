@@ -31,10 +31,9 @@ export default async function JournalDetailPage({ params }: Props) {
     notFound();
   }
 
-
   return (
-    <article className="pt-24 sm:pt-28 pb-16 sm:pb-28 min-h-screen bg-[#F8F7F3]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <article className="pt-24 sm:pt-28 pb-16 sm:pb-28 min-h-screen bg-[#F8F7F3] w-full max-w-full overflow-x-hidden">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
         {/* Back Link */}
         <Link
           href="/journal"
@@ -45,7 +44,7 @@ export default async function JournalDetailPage({ params }: Props) {
         </Link>
 
         {/* Article Meta Header */}
-        <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+        <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8 w-full max-w-full">
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs text-[#737373]">
             <span className="px-3 py-1 rounded-full bg-[#111111] text-white text-[10px] uppercase tracking-wider font-semibold">
               {post.category}
@@ -87,7 +86,7 @@ export default async function JournalDetailPage({ params }: Props) {
         </div>
 
         {/* Hero Cover Image */}
-        <div className="relative h-[40vh] min-h-[240px] sm:h-[55vh] sm:min-h-[400px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl mb-8 sm:mb-12">
+        <div className="relative h-[40vh] min-h-[240px] sm:h-[55vh] sm:min-h-[400px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl mb-8 sm:mb-12 w-full max-w-full">
           <Image
             src={post.coverImage}
             alt={post.title}
@@ -99,7 +98,7 @@ export default async function JournalDetailPage({ params }: Props) {
         </div>
 
         {/* Main Editorial Text */}
-        <div className="prose prose-lg max-w-none text-[#171717] font-serif space-y-4 sm:space-y-6 leading-relaxed text-sm sm:text-lg">
+        <div className="prose prose-lg max-w-none text-[#171717] font-serif space-y-4 sm:space-y-6 leading-relaxed text-sm sm:text-lg w-full max-w-full">
           {post.content.map((paragraph, idx) => (
             <p key={idx} className="font-light text-gray-800">
               {paragraph}
@@ -108,7 +107,7 @@ export default async function JournalDetailPage({ params }: Props) {
         </div>
 
         {/* Tags */}
-        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-200 flex flex-wrap gap-2">
+        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-200 flex flex-wrap gap-2 w-full max-w-full">
           {post.tags.map((tag) => (
             <span
               key={tag}
@@ -120,7 +119,7 @@ export default async function JournalDetailPage({ params }: Props) {
         </div>
 
         {/* Plan Trip Callout */}
-        <div className="mt-10 sm:mt-16 p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-[#111111] text-white text-center space-y-3 sm:space-y-4">
+        <div className="mt-10 sm:mt-16 p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-[#111111] text-white text-center space-y-3 sm:space-y-4 w-full max-w-full">
           <span className="text-[10px] uppercase tracking-widest text-[#D9A441] font-semibold block">
             Bespoke Planning
           </span>

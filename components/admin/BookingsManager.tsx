@@ -56,7 +56,7 @@ export default function BookingsManager({ initialBookings }: Props) {
           />
         </div>
 
-        <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-1 w-full sm:w-auto">
+        <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-1 w-full sm:w-auto min-w-0 max-w-full">
           {["all", "CONFIRMED", "PENDING", "COMPLETED"].map((st) => (
             <button
               key={st}

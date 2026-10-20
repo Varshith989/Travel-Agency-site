@@ -19,7 +19,7 @@ export default function FloatingWhatsApp() {
   return (
     <aside
       aria-label="Private Concierge WhatsApp"
-      className="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-2.5"
+      className="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-2.5 max-w-[calc(100vw-2rem)]"
     >
       {/* Discreet Luxury Callout */}
       {showTooltip && (
@@ -43,7 +43,7 @@ export default function FloatingWhatsApp() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative w-12 h-12 rounded-full bg-[#0D1315] border border-[#C29D59]/40 text-[#C29D59] hover:bg-[#C29D59] hover:text-[#0D1315] flex items-center justify-center shadow-xl transition-all duration-300 hover:scale-105"
+        className="group relative w-12 h-12 rounded-full bg-[#0D1315] border border-[#C29D59]/40 text-[#C29D59] hover:bg-[#C29D59] hover:text-[#0D1315] flex items-center justify-center shadow-xl transition-all duration-300 hover:scale-105 shrink-0"
         aria-label="Connect with Aerova Luxury Concierge on WhatsApp"
       >
         <MessageCircle className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />

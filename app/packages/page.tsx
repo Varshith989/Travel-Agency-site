@@ -15,10 +15,10 @@ export default async function PackagesPage({ searchParams }: Props) {
   const { destination, style } = await searchParams;
 
   return (
-    <div className="pt-24 sm:pt-28 pb-16 sm:pb-24 min-h-screen bg-[#F8F7F3]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-24 sm:pt-28 pb-16 sm:pb-24 min-h-screen bg-[#F8F7F3] w-full max-w-full overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 w-full max-w-full">
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#EFECE6] text-[#D9A441] text-[11px] sm:text-xs uppercase tracking-widest font-semibold mb-4">
             <Compass className="w-3.5 h-3.5" />
             <span>Turnkey Luxury Itineraries</span>
@@ -32,11 +32,13 @@ export default async function PackagesPage({ searchParams }: Props) {
         </div>
 
         {/* Client interactive catalog with filters */}
-        <PackagesCatalogClient
-          initialPackages={packages}
-          initialDestination={destination || "all"}
-          initialStyle={style || "all"}
-        />
+        <div className="w-full max-w-full">
+          <PackagesCatalogClient
+            initialPackages={packages}
+            initialDestination={destination || "all"}
+            initialStyle={style || "all"}
+          />
+        </div>
       </div>
     </div>
   );

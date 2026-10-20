@@ -40,8 +40,8 @@ export default function ContactClient() {
   const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsappClean}?text=${encodeURIComponent(siteConfig.contact.whatsappDefaultMessage)}`;
 
   return (
-    <div className="pt-24 sm:pt-28 pb-16 sm:pb-28 min-h-screen bg-[#F8F7F3]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-24 sm:pt-28 pb-16 sm:pb-28 min-h-screen bg-[#F8F7F3] w-full max-w-full overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
           <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#D9A441] mb-2 block">
@@ -55,7 +55,7 @@ export default function ContactClient() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full max-w-full">
           {/* Left Column: Direct Contact & Office (5 cols) */}
           <div className="lg:col-span-5 space-y-6 sm:space-y-8">
             <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-[#171717]/8 shadow-sm space-y-5 sm:space-y-6">

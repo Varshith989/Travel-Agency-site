@@ -16,7 +16,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   ];
 
   return (
-    <div className="min-h-screen bg-[#F0EFEA] flex flex-col md:flex-row font-sans text-[#111111]">
+    <div className="min-h-screen bg-[#F0EFEA] flex flex-col md:flex-row font-sans text-[#111111] w-full max-w-full overflow-x-hidden">
       {/* Sidebar */}
       <aside className="w-full md:w-64 bg-[#111111] text-white flex flex-col justify-between p-4 sm:p-6 shrink-0 border-b md:border-b-0 border-white/10">
         <div>
@@ -70,7 +70,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       </aside>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col overflow-y-auto">
+      <div className="flex-1 flex flex-col overflow-y-auto min-w-0 max-w-full overflow-x-hidden">
         {/* Top bar */}
         <header className="h-14 sm:h-16 bg-white border-b border-[#171717]/8 px-4 sm:px-6 flex items-center justify-between gap-2">
           <div className="text-[11px] sm:text-xs font-semibold text-[#737373] uppercase tracking-wider truncate pr-2">
@@ -92,7 +92,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </header>
 
         {/* Content body */}
-        <main className="p-4 sm:p-6 sm:p-10 flex-1">{children}</main>
+        <main className="p-4 sm:p-6 sm:p-10 flex-1 min-w-0 max-w-full overflow-x-hidden">{children}</main>
       </div>
     </div>
   );

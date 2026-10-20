@@ -114,8 +114,8 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
   ];
 
   return (
-    <div className="pt-24 sm:pt-28 pb-16 sm:pb-28 min-h-screen bg-[#F8F7F3]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-24 sm:pt-28 pb-16 sm:pb-28 min-h-screen bg-[#F8F7F3] w-full max-w-full overflow-x-hidden">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
           <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#EFECE6] text-[#D9A441] text-[11px] sm:text-xs uppercase tracking-widest font-semibold mb-3">
@@ -238,7 +238,7 @@ export default function PlanTripClient({ initialDestination = "", initialStyle =
           </div>
         ) : (
           /* Form Card */
-          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 sm:p-10 shadow-xl border border-[#171717]/8">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 sm:p-10 shadow-xl border border-[#171717]/8 w-full max-w-full">
             {/* Step 1: Destination */}
             {step === 1 && (
               <div className="space-y-6 animate-fade-in">

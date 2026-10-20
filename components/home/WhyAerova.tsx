@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Compass, Headphones, ShieldCheck, Sparkles, UserCheck } from "lucide-react";
+import { Headphones, ShieldCheck, Sparkles, UserCheck } from "lucide-react";
 
 export default function WhyAerova() {
   const pillars = [
@@ -36,7 +36,7 @@ export default function WhyAerova() {
   ];
 
   return (
-    <section className="py-16 sm:py-28 bg-[#0D1315] text-white overflow-hidden relative">
+    <section className="py-16 sm:py-28 bg-[#0D1315] text-white overflow-hidden relative w-full max-w-full">
       {/* Subtle Texture & Atmospheric Backdrop */}
       <div className="absolute inset-0 opacity-15 mix-blend-luminosity pointer-events-none">
         <Image
@@ -49,9 +49,9 @@ export default function WhyAerova() {
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-[#0D1315] via-[#0D1315]/95 to-[#0D1315]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
         {/* Editorial Split Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-end mb-12 sm:mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-end mb-12 sm:mb-20 w-full max-w-full">
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="w-8 h-[1px] bg-[#C29D59]" />
@@ -73,13 +73,13 @@ export default function WhyAerova() {
         </div>
 
         {/* 4 Distinction Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8 w-full max-w-full">
           {pillars.map((pillar) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={pillar.num}
-                className="group p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#141C1F] border border-white/10 hover:border-[#C29D59]/50 transition-all duration-500 flex flex-col justify-between hover:-translate-y-1 shadow-lg"
+                className="group p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#141C1F] border border-white/10 hover:border-[#C29D59]/50 transition-all duration-500 flex flex-col justify-between hover:-translate-y-1 shadow-lg w-full max-w-full"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6 sm:mb-8">
@@ -102,15 +102,6 @@ export default function WhyAerova() {
               </div>
             );
           })}
-        </div>
-
-        {/* Global Access Footnote */}
-        <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs text-gray-400 font-light tracking-wide text-center sm:text-left">
-          <div className="flex items-center gap-2">
-            <Compass className="w-4 h-4 text-[#C29D59] shrink-0" />
-            <span>Direct relationships with premier global luxury hospitability partners</span>
-          </div>
-          <span className="text-[#C29D59]">Strictly private • Zero undisclosed markups</span>
         </div>
       </div>
     </section>

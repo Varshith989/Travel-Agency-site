@@ -26,8 +26,8 @@ export default function PackageDetailClient({ pkg }: Props) {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#F8F7F3] pt-20 sm:pt-24 pb-28 sm:pb-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#F8F7F3] pt-20 sm:pt-24 pb-28 sm:pb-28 w-full max-w-full overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
         {/* Back navigation */}
         <Link
           href="/packages"
@@ -38,7 +38,7 @@ export default function PackageDetailClient({ pkg }: Props) {
         </Link>
 
         {/* Hero Banner with large imagery */}
-        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl h-[55vh] min-h-[380px] sm:h-[65vh] sm:min-h-[480px] flex items-end p-5 sm:p-8 sm:p-12 mb-8 sm:mb-14">
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl h-[55vh] min-h-[380px] sm:h-[65vh] sm:min-h-[480px] flex items-end p-5 sm:p-8 sm:p-12 mb-8 sm:mb-14 w-full max-w-full">
           <Image
             src={pkg.heroImage}
             alt={pkg.title}
@@ -49,7 +49,7 @@ export default function PackageDetailClient({ pkg }: Props) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20" />
 
-          <div className="relative z-10 text-white max-w-4xl">
+          <div className="relative z-10 text-white max-w-4xl w-full">
             <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2.5 sm:mb-3">
               <span className="px-3 py-1 rounded-full bg-[#D9A441] text-[#111111] text-[10px] sm:text-[11px] font-bold uppercase tracking-wider">
                 {pkg.travelStyle}
@@ -76,17 +76,17 @@ export default function PackageDetailClient({ pkg }: Props) {
               <MapPin className="w-4 h-4 text-[#D9A441] shrink-0" />
               <span className="font-medium text-white">{pkg.destinationName}, {pkg.country}</span>
               <span>•</span>
-              <span className="font-mono text-[#D9A441]">{pkg.route.join(" → ")}</span>
+              <span className="font-mono text-[#D9A441] break-words">{pkg.route.join(" → ")}</span>
             </div>
           </div>
         </div>
 
         {/* Content Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full max-w-full">
           {/* Left Column: Itinerary, Inclusions, Hotels */}
-          <div className="lg:col-span-8 space-y-10 sm:space-y-14">
+          <div className="lg:col-span-8 space-y-10 sm:space-y-14 w-full max-w-full">
             {/* Overview */}
-            <section>
+            <section className="w-full max-w-full">
               <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D9A441] block mb-2">
                 Journey Narrative
               </span>
@@ -99,7 +99,7 @@ export default function PackageDetailClient({ pkg }: Props) {
             </section>
 
             {/* Day-by-Day Interactive Itinerary */}
-            <section>
+            <section className="w-full max-w-full">
               <div className="flex items-center justify-between mb-5 sm:mb-6">
                 <div>
                   <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D9A441] block mb-1">
@@ -118,7 +118,7 @@ export default function PackageDetailClient({ pkg }: Props) {
             </section>
 
             {/* Inclusions & Exclusions */}
-            <section className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-[#171717]/8 shadow-sm">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-[#171717]/8 shadow-sm w-full max-w-full">
               <div>
                 <h3 className="font-serif text-xl font-bold text-[#111111] mb-4 flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-emerald-600" />
@@ -151,18 +151,18 @@ export default function PackageDetailClient({ pkg }: Props) {
             </section>
 
             {/* Handpicked Accommodations */}
-            <section>
+            <section className="w-full max-w-full">
               <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D9A441] block mb-2">
                 Sanctuaries of Rest
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#111111] mb-5 sm:mb-6">
                 Featured Hotels & Ryokans
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 w-full max-w-full">
                 {pkg.hotels.map((h, idx) => (
                   <div
                     key={idx}
-                    className="p-4 sm:p-5 rounded-2xl bg-white border border-[#171717]/8 shadow-sm flex items-center gap-3 sm:gap-4"
+                    className="p-4 sm:p-5 rounded-2xl bg-white border border-[#171717]/8 shadow-sm flex items-center gap-3 sm:gap-4 w-full max-w-full"
                   >
                     <div className="w-10 h-10 rounded-xl bg-[#F8F7F3] flex items-center justify-center text-[#D9A441] shrink-0">
                       <Building2 className="w-5 h-5" />
@@ -181,7 +181,7 @@ export default function PackageDetailClient({ pkg }: Props) {
             </section>
 
             {/* Cancellation Policy */}
-            <section className="p-5 sm:p-6 rounded-2xl bg-white border border-[#171717]/8 shadow-sm">
+            <section className="p-5 sm:p-6 rounded-2xl bg-white border border-[#171717]/8 shadow-sm w-full max-w-full">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#111111] mb-2">
                 <ShieldCheck className="w-4 h-4 text-[#D9A441] shrink-0" />
                 <span>Flexible Cancellation & Assurance</span>
@@ -193,8 +193,8 @@ export default function PackageDetailClient({ pkg }: Props) {
           </div>
 
           {/* Right Column: Sticky Booking / Price Card */}
-          <div className="lg:col-span-4">
-            <div className="sticky top-28 bg-[#111111] text-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-2xl border border-white/10 space-y-5 sm:space-y-6">
+          <div className="lg:col-span-4 w-full max-w-full">
+            <div className="sticky top-28 bg-[#111111] text-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl shadow-2xl border border-white/10 space-y-5 sm:space-y-6 w-full max-w-full">
               <div>
                 <span className="text-[10px] uppercase tracking-widest text-gray-400 block mb-1">
                   All-Inclusive Starting Price
@@ -256,7 +256,7 @@ export default function PackageDetailClient({ pkg }: Props) {
       </div>
 
       {/* Mobile Sticky Booking Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#0D1315]/95 backdrop-blur-md border-t border-white/10 px-4 py-3 lg:hidden shadow-2xl flex items-center justify-between gap-3">
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#0D1315]/95 backdrop-blur-md border-t border-white/10 px-4 py-3 lg:hidden shadow-2xl flex items-center justify-between gap-3 w-full max-w-full">
         <div>
           <span className="text-[10px] uppercase tracking-wider text-gray-400 block leading-tight">Starting from</span>
           <div className="flex items-baseline gap-1">

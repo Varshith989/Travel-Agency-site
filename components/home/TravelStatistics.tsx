@@ -93,15 +93,15 @@ export default function TravelStatistics() {
   ];
 
   return (
-    <section className="py-14 sm:py-20 bg-[#0D1315] text-white border-y border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-12">
+    <section className="py-14 sm:py-20 bg-[#0D1315] text-white border-y border-white/10 w-full max-w-full overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-12 w-full max-w-full">
           {stats.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={idx}
-                className="flex flex-col items-center sm:items-start text-center sm:text-left p-2 sm:p-4"
+                className="flex flex-col items-center sm:items-start text-center sm:text-left p-2 sm:p-4 w-full max-w-full"
               >
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#C29D59] mb-3 sm:mb-4">
                   <Icon className="w-4 h-4 sm:w-5 sm:h-5" />

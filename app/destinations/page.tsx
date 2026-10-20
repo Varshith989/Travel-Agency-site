@@ -11,10 +11,10 @@ export const metadata = {
 
 export default function DestinationsPage() {
   return (
-    <div className="pt-24 sm:pt-28 pb-16 sm:pb-24 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-24 sm:pt-28 pb-16 sm:pb-24 min-h-screen w-full max-w-full overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
         {/* Page Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 w-full max-w-full">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EFECE6] text-[#D9A441] text-xs uppercase tracking-widest font-semibold mb-4">
             <Compass className="w-3.5 h-3.5" />
             <span>Global Portfolio</span>
@@ -27,13 +27,13 @@ export default function DestinationsPage() {
           </p>
         </div>
 
-        {/* Destination Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* Destination Cards Grid - 1 column on mobile, 2 on md, 3 on lg */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-full">
           {destinations.map((dest) => (
             <Link
               key={dest.id}
               href={`/destinations/${dest.slug}`}
-              className="group relative h-[400px] sm:h-[480px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col justify-between p-5 sm:p-7 bg-black"
+              className="group relative h-[400px] sm:h-[480px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col justify-between p-5 sm:p-7 bg-black w-full max-w-full"
             >
               <Image
                 src={dest.heroImage}

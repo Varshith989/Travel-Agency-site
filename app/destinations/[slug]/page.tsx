@@ -38,9 +38,9 @@ export default async function DestinationDetailPage({ params }: Props) {
   );
 
   return (
-    <div className="min-h-screen bg-[#F8F7F3]">
+    <div className="min-h-screen bg-[#F8F7F3] w-full max-w-full overflow-x-hidden">
       {/* Cinematic Hero */}
-      <div className="relative h-[65vh] min-h-[440px] sm:h-[75vh] sm:min-h-[500px] flex items-end pb-10 sm:pb-16 overflow-hidden">
+      <div className="relative h-[65vh] min-h-[440px] sm:h-[75vh] sm:min-h-[500px] flex items-end pb-10 sm:pb-16 overflow-hidden w-full max-w-full">
         <Image
           src={destination.heroImage}
           alt={destination.name}
@@ -51,7 +51,7 @@ export default async function DestinationDetailPage({ params }: Props) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/40 to-black/30" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-white">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-white max-w-full">
           <Link
             href="/destinations"
             className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-gray-300 hover:text-[#D9A441] transition-colors mb-4"
@@ -75,7 +75,7 @@ export default async function DestinationDetailPage({ params }: Props) {
             {destination.tagline}
           </p>
 
-          <div className="mt-5 sm:mt-6 grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-4 sm:gap-6 text-xs text-gray-300 pt-4 border-t border-white/20">
+          <div className="mt-5 sm:mt-6 grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-4 sm:gap-6 text-xs text-gray-300 pt-4 border-t border-white/20 w-full max-w-full">
             <div>
               <span className="text-gray-400 block text-[10px] uppercase tracking-wider">
                 Ideal Duration
@@ -107,12 +107,12 @@ export default async function DestinationDetailPage({ params }: Props) {
       </div>
 
       {/* Main Content Body */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 w-full max-w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 w-full max-w-full">
           {/* Left Column: Overview & Experiences */}
-          <div className="lg:col-span-8 space-y-16">
+          <div className="lg:col-span-8 space-y-12 sm:space-y-16 w-full max-w-full">
             {/* Overview */}
-            <section>
+            <section className="w-full max-w-full">
               <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D9A441] block mb-2">
                 Overview
               </span>
@@ -124,7 +124,7 @@ export default async function DestinationDetailPage({ params }: Props) {
               </p>
 
               {/* Climate & Visa Info Callout */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-6 rounded-2xl bg-white border border-[#171717]/8 shadow-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-6 rounded-2xl bg-white border border-[#171717]/8 shadow-sm w-full max-w-full">
                 <div>
                   <div className="flex items-center gap-2 text-xs font-semibold text-[#111111] uppercase tracking-wider mb-1">
                     <Sun className="w-4 h-4 text-[#D9A441]" />
@@ -147,18 +147,18 @@ export default async function DestinationDetailPage({ params }: Props) {
             </section>
 
             {/* Top Curated Experiences */}
-            <section>
+            <section className="w-full max-w-full">
               <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D9A441] block mb-2">
                 Unrivaled Moments
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#111111] mb-6 sm:mb-8">
                 Top Experiences in {destination.name}
               </h2>
-              <div className="space-y-4 sm:space-y-6">
+              <div className="space-y-4 sm:space-y-6 w-full max-w-full">
                 {destination.topExperiences.map((exp, idx) => (
                   <div
                     key={idx}
-                    className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#171717]/8 shadow-sm flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center"
+                    className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#171717]/8 shadow-sm flex flex-col sm:flex-row gap-4 sm:gap-6 items-start sm:items-center w-full max-w-full"
                   >
                     <div className="relative w-full sm:w-44 h-48 sm:h-36 rounded-xl sm:rounded-2xl overflow-hidden shrink-0">
                       <Image
@@ -169,7 +169,7 @@ export default async function DestinationDetailPage({ params }: Props) {
                         className="object-cover"
                       />
                     </div>
-                    <div>
+                    <div className="w-full min-w-0">
                       <span className="font-mono text-xs text-[#D9A441] font-bold block mb-1">
                         0{idx + 1}
                       </span>
@@ -186,18 +186,18 @@ export default async function DestinationDetailPage({ params }: Props) {
             </section>
 
             {/* Recommended Hotels */}
-            <section>
+            <section className="w-full max-w-full">
               <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D9A441] block mb-2">
                 Accommodations
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#111111] mb-6 sm:mb-8">
                 Recommended Stays
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full max-w-full">
                 {destination.recommendedHotels.map((hotel, idx) => (
                   <div
                     key={idx}
-                    className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#171717]/8 shadow-sm group"
+                    className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#171717]/8 shadow-sm group w-full max-w-full"
                   >
                     <div className="relative h-44 w-full">
                       <Image
@@ -227,18 +227,18 @@ export default async function DestinationDetailPage({ params }: Props) {
             </section>
 
             {/* FAQs */}
-            <section>
+            <section className="w-full max-w-full">
               <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#D9A441] block mb-2">
                 Essential Advisory
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#111111] mb-6">
                 Frequently Asked Questions
               </h2>
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-3 sm:space-y-4 w-full max-w-full">
                 {destination.faqs.map((faq, idx) => (
                   <div
                     key={idx}
-                    className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white border border-[#171717]/8 shadow-sm"
+                    className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white border border-[#171717]/8 shadow-sm w-full max-w-full"
                   >
                     <h3 className="font-serif font-bold text-sm sm:text-base text-[#111111] mb-1.5 sm:mb-2">
                       {faq.question}
@@ -253,9 +253,9 @@ export default async function DestinationDetailPage({ params }: Props) {
           </div>
 
           {/* Right Column: Sticky Trip Planning Card & Packages */}
-          <div className="lg:col-span-4 space-y-6 sm:space-y-8">
+          <div className="lg:col-span-4 space-y-6 sm:space-y-8 w-full max-w-full">
             {/* Sticky Lead Card */}
-            <div className="sticky top-28 bg-[#111111] text-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl shadow-2xl border border-white/10">
+            <div className="sticky top-28 bg-[#111111] text-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl shadow-2xl border border-white/10 w-full max-w-full">
               <span className="text-[10px] uppercase tracking-widest text-[#D9A441] font-semibold block mb-2">
                 Custom Curation
               </span>
@@ -292,7 +292,7 @@ export default async function DestinationDetailPage({ params }: Props) {
 
             {/* Matching Packages */}
             {relatedPackages.length > 0 && (
-              <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#171717]/8 shadow-sm">
+              <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#171717]/8 shadow-sm w-full max-w-full">
                 <h3 className="font-serif text-base sm:text-lg font-bold text-[#111111] mb-3 sm:mb-4">
                   Signature Package Available
                 </h3>
@@ -300,7 +300,7 @@ export default async function DestinationDetailPage({ params }: Props) {
                   <Link
                     key={pkg.id}
                     href={`/packages/${pkg.slug}`}
-                    className="block group p-4 rounded-2xl hover:bg-[#F8F7F3] transition-colors border border-transparent hover:border-[#171717]/10"
+                    className="block group p-4 rounded-2xl hover:bg-[#F8F7F3] transition-colors border border-transparent hover:border-[#171717]/10 w-full max-w-full"
                   >
                     <span className="text-[10px] text-[#D9A441] uppercase tracking-wider font-semibold">
                       {pkg.durationDays} Days • {pkg.travelStyle}

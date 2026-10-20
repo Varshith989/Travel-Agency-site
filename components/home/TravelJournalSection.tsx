@@ -9,10 +9,10 @@ export default function TravelJournalSection() {
   const [featuredPost, ...otherPosts] = blogPosts;
 
   return (
-    <section className="py-16 sm:py-28 bg-[#FAF8F5] border-t border-[#181918]/6">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-28 bg-[#FAF8F5] border-t border-[#181918]/6 w-full max-w-full overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
         {/* Editorial Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-16 gap-6 w-full max-w-full">
           <div>
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="w-8 h-[1px] bg-[#C29D59]" />
@@ -39,11 +39,11 @@ export default function TravelJournalSection() {
         </div>
 
         {/* Asymmetric Magazine Spread Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch w-full max-w-full">
           {featuredPost && (
             <Link
               href={`/journal/${featuredPost.slug}`}
-              className="lg:col-span-7 group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#181918]/8 shadow-[0_4px_30px_rgba(0,0,0,0.02)] hover:shadow-2xl transition-all duration-500 flex flex-col justify-between"
+              className="lg:col-span-7 group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#181918]/8 shadow-[0_4px_30px_rgba(0,0,0,0.02)] hover:shadow-2xl transition-all duration-500 flex flex-col justify-between w-full max-w-full"
             >
               <div className="relative h-64 sm:h-[400px] w-full overflow-hidden bg-gray-100">
                 <Image
@@ -71,7 +71,7 @@ export default function TravelJournalSection() {
                 </div>
               </div>
 
-              <div className="p-5 sm:p-8 sm:p-10 flex flex-col justify-between flex-1">
+              <div className="p-5 sm:p-8 sm:p-10 flex flex-col justify-between flex-1 w-full max-w-full">
                 <div>
                   <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#0D1315] leading-snug group-hover:text-[#C29D59] transition-colors mb-3">
                     {featuredPost.title}
@@ -83,7 +83,7 @@ export default function TravelJournalSection() {
 
                 <div className="pt-5 sm:pt-6 border-t border-[#181918]/8 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="relative w-8 h-8 rounded-full overflow-hidden border border-[#C29D59]/30">
+                    <div className="relative w-8 h-8 rounded-full overflow-hidden border border-[#C29D59]/30 shrink-0">
                       <Image
                         src={featuredPost.authorAvatar}
                         alt={featuredPost.authorName}
@@ -112,12 +112,12 @@ export default function TravelJournalSection() {
           )}
 
           {/* Secondary Editorial Stories (5 cols) */}
-          <div className="lg:col-span-5 flex flex-col gap-5 sm:gap-6">
+          <div className="lg:col-span-5 flex flex-col gap-5 sm:gap-6 w-full max-w-full">
             {otherPosts.slice(0, 2).map((post) => (
               <Link
                 key={post.id}
                 href={`/journal/${post.slug}`}
-                className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#181918]/8 shadow-[0_4px_24px_rgba(0,0,0,0.02)] hover:shadow-xl transition-all duration-500 p-5 sm:p-7 flex flex-col justify-between flex-1"
+                className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#181918]/8 shadow-[0_4px_24px_rgba(0,0,0,0.02)] hover:shadow-xl transition-all duration-500 p-5 sm:p-7 flex flex-col justify-between flex-1 w-full max-w-full"
               >
                 <div>
                   <div className="flex items-center justify-between text-[11px] text-[#7A7C78] mb-3">
@@ -143,7 +143,7 @@ export default function TravelJournalSection() {
                   <span className="text-[#7A7C78] text-[11px]">{post.publishedAt}</span>
                   <div className="inline-flex items-center gap-1 font-semibold uppercase tracking-wider text-[#0D1315] group-hover:text-[#C29D59] transition-colors">
                     <span>Read</span>
-                    <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                   </div>
                 </div>
               </Link>

@@ -34,10 +34,10 @@ export default function InstagramGallery() {
   ];
 
   return (
-    <section className="py-14 sm:py-24 bg-[#F4F0E8]/40 border-t border-[#181918]/6">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-14 sm:py-24 bg-[#F4F0E8]/40 border-t border-[#181918]/6 w-full max-w-full overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-full">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 sm:mb-12">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 sm:mb-12 w-full max-w-full">
           <div>
             <div className="inline-flex items-center gap-2 mb-2">
               <span className="w-8 h-[1px] bg-[#C29D59]" />
@@ -54,7 +54,7 @@ export default function InstagramGallery() {
             href={siteConfig.socials.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white border border-[#181918]/10 text-xs font-semibold text-[#0D1315] hover:border-[#C29D59] hover:text-[#C29D59] transition-colors shadow-sm text-center"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white border border-[#181918]/10 text-xs font-semibold text-[#0D1315] hover:border-[#C29D59] hover:text-[#C29D59] transition-colors shadow-sm text-center shrink-0"
           >
             <InstagramIcon className="w-3.5 h-3.5 text-[#C29D59]" />
             <span>Follow @aerovatravels</span>
@@ -63,14 +63,14 @@ export default function InstagramGallery() {
         </div>
 
         {/* 6 Photo Responsive Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 w-full max-w-full">
           {photos.map((photo, idx) => (
             <a
               key={idx}
               href={siteConfig.socials.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative aspect-square rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all"
+              className="group relative aspect-square rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all w-full max-w-full"
             >
               <Image
                 src={photo.src}
